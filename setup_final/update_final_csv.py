@@ -1,0 +1,18 @@
+import pandas as pd
+from config import path_modified_airing, path_final_csv 
+
+df_a = pd.read_csv(path_modified_airing)
+df_f = pd.read_csv(path_final_csv)
+
+for _, row in df_a.iterrows():
+    # Match both Title AND Type at the same time
+    mask = (df_f["title"] == row["title"]) & (df_f["type"] == row["type"])
+    
+    if mask.any():
+        # Calculate value
+        row["complete_duration"] = row["duration"] * row["episodes"]
+        
+        # Update every row that matches both criteria
+        df_f.loc[mask, :] = row.values
+
+df_f.to_csv(path_final_csv, index=False)
