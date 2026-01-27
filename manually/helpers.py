@@ -18,7 +18,10 @@ def get_choices(df):
 
 def get_title_type(answer):
     # Extract both parts from: "Adachi to Shimamura (tv)"
-    clean_title = answer.rsplit(' (', 1)[0]
-    clean_type = answer.rsplit(' (', 1)[1].rstrip(')')
+    try:
+        clean_title = answer.rsplit(' (', 1)[0]
+        clean_type = answer.rsplit(' (', 1)[1].rstrip(')')
+    except Exception:
+        return 1, 1
 
     return clean_title, clean_type

@@ -9,10 +9,11 @@ for _, row in df_a.iterrows():
     mask = (df_f["title"] == row["title"]) & (df_f["type"] == row["type"])
     
     if mask.any():
-        # Calculate value
+        # Calculate complete duration
         row["complete_duration"] = row["duration"] * row["episodes"]
         
         # Update every row that matches both criteria
         df_f.loc[mask, :] = row.values
 
+df_f = df_f.sort_values(by="start_date")
 df_f.to_csv(path_final_csv, index=False)

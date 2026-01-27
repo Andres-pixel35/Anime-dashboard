@@ -7,7 +7,7 @@ df1 = pd.read_csv(path_historical_csv)
 df2 = pd.read_csv(path_modified_airing)
 df_combined = pd.concat([df1, df2], ignore_index=True)
 
-# I keep the information from df2 because is the one with the most update information
+# I keep the information from df2 because is the one with the update information
 df = df_combined.drop_duplicates(subset=["title", "type"], keep="last")
 df.loc[:,"start_date"] = pd.to_datetime(df["start_date"]).dt.date
 df = df.sort_values(by="start_date")

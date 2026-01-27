@@ -8,29 +8,50 @@ final_df = pd.read_csv(path_final_csv)
 
 choices = helpers.get_choices(df)
 
-answer = questionary.autocomplete(
-    "Enter the title:",
-    choices=choices,
-    ignore_case=True,
-    style=blue_style,
-    qmark="💠", 
-).ask()
+new_entries = []
 
-clean_title, clean_type = helpers.get_title_type(answer)
+while True:
+    answer = questionary.autocomplete(
+        "Enter the title (or type 'exit' to finish): ",
+        choices=choices,
+        ignore_case=True,
+        style=blue_style,
+        qmark="💠", 
+    ).ask()
 
-# Filter by (Title OR English Title) AND Type
-new_row = df[
-    ((df["title"] == clean_title) | (df["english_title"] == clean_title)) &
-    (df["type"] == clean_type)
-].copy()
+    # Break condition
+    if not answer or answer.lower() == 'exit':
+        break
 
-if new_row["title"].isin(final_df["title"]).any():
-    print("This row is already in the df")
+    clean_title, clean_type = helpers.get_title_type(answer)
+    if clean_title == 1 and clean_type == 1:
+        print("ERROR: You need to choose the work you want to add, not just write it. Pleae try again.")
+        continue
+
+    # Check if it already exists in the main dataframe OR our current session list
+    is_in_final = final_df["title"].eq(clean_title).any()
+    is_in_session = any(row['title'].eq(clean_title).any() for row in new_entries)
+
+    if is_in_final or is_in_session:
+        print(f"'{clean_title}' is already in your list!")
+        continue
+
+    # Grab the data from the source dataframe
+    match = df[
+        ((df["title"] == clean_title) | (df["english_title"] == clean_title)) &
+        (df["type"] == clean_type)
+    ].copy()
+
+    if not match.empty:
+        # Calculate duration and add to our temporary session list
+        match["complete_duration"] = match["duration"] * match["episodes"]
+        new_entries.append(match)
+        print(f"Added: {clean_title}")
+
+# Batch add everything at once
+if new_entries:
+    final_df = pd.concat([final_df] + new_entries, ignore_index=True)
+    final_df.to_csv(path_final_csv, index=False)
+    print(f"Success! {len(new_entries)} new rows saved to CSV.")
 else:
-    new_row["complete_duration"] = new_row["duration"] * new_row["episodes"]
-    final_df = pd.concat([final_df, new_row], ignore_index=True)
-
-
-final_df.to_csv(path_final_csv, index=False)
-
-
+    print("No new changes to save.")

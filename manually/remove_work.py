@@ -7,24 +7,58 @@ df = pd.read_csv(path_final_csv)
 
 choices = helpers.get_choices(df)
 
-answer = questionary.autocomplete(
-    "Enter the title you want to remove:",
-    choices=choices,
-    ignore_case=True,
-    style=blue_style,
-    qmark="💠", 
-).ask()
+# List to keep track of indices we intend to remove
+indices_to_drop = []
+# List of titles (for visual confirmation at the end)
+removed_titles = []
 
-clean_title, clean_type = helpers.get_title_type(answer)
+while True:
+    answer = questionary.autocomplete(
+        "Enter the title you want to remove (or type 'exit' to finish): ",
+        choices=choices,
+        ignore_case=True,
+        style=blue_style,
+        qmark="💠", 
+    ).ask()
 
-# Filter by (Title OR English Title) AND Type
-new_row = df[
-    ((df["title"] == clean_title) | (df["english_title"] == clean_title)) &
-    (df["type"] == clean_type)
-].index
+    if not answer or answer.lower() == 'exit':
+        break
 
-confirmation = input(f"Are you sure you want to remove {clean_title} ({clean_type.lower()}) from your csv?: ")
-if confirmation == 'y':
-    df = df.drop(new_row)
+    clean_title, clean_type = helpers.get_title_type(answer)
+    if clean_title == 1 and clean_type == 1:
+        print("ERROR: You need to choose the work you want to remove, not just write it. Pleae try again.")
+        continue
 
-df.to_csv(path_final_csv, index=False)
+    # Find the rows that match the criteria
+    matching_rows = df[
+        ((df["title"] == clean_title) | (df["english_title"] == clean_title)) &
+        (df["type"] == clean_type)
+    ]
+
+    # Ask for confirmation
+    is_confirmed = questionary.confirm(
+        f"Are you sure you want to remove {clean_title} ({clean_type.lower()})?",
+        default=False
+    ).ask()
+
+    if is_confirmed:
+        indices_to_drop.extend(matching_rows.index.tolist())
+        removed_titles.append(f"{clean_title} ({clean_type})")
+        print(f"Marked '{clean_title}' for removal.")
+    else:
+        print("Deletion canceled.")
+
+# Finalize: Drop all marked rows at once
+if indices_to_drop:
+    # We use list(set()) to ensure we don't try to drop the same index twice
+    df = df.drop(index=list(set(indices_to_drop)))
+    df.to_csv(path_final_csv, index=False)
+    
+    print("\n--- Summary ---")
+    print(f"Successfully removed {len(removed_titles)} items:")
+    for title in removed_titles:
+        print(f" - {title}")
+else:
+    print("No items were removed.")
+
+print("")

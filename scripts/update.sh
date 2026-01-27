@@ -1,23 +1,34 @@
 #! /bin/bash
 
-GITHUB_URL=$(python3 -c "import config; print(config.url)")
-CLEANUP_FILE=$(python3 -c "import config; print(config.cleanup)")
-CONCATENATE_FILE=$(python3 -c "import config; print(config.concatenate)")
-AIRING_SAVE=$(python3 -c "import config; print(config.path_original_airing)")
-VIRTUAL_ENVIROMENT=$(python3 -c "import config; print(config.venv_enviroment)")
+# Capture Python variables into Bash environment
+eval $("$1" -c "
+from pathlib import Path
+import config
 
-# activates the virtual environment
-source "$VIRTUAL_ENVIROMENT"
+# Map your Python variables to Bash names
+vars_to_export = {
+    'URL': config.url,
+    'CLEANUP_SCRIPT': config.cleanup,
+    'CONCAT_SCRIPT': config.concatenate,
+    'SAVE_AIRING': config.path_original_airing
+}
+
+for bash_var, value in vars_to_export.items():
+    # Convert Path objects to strings, keep strings as is
+    val_str = value.as_posix() if isinstance(value, Path) else value
+    print(f'{bash_var}=\"{val_str}\"')
+")
 
 # download the new airing_anime.csv
-curl -o "$AIRING_SAVE" "$GITHUB_URL"
+echo ""
+echo "Downloading airing_anime.csv from Github"
+echo "--------------------------------"
+curl -o "$SAVE_AIRING" "$URL"
 
 # cleans that new file and concatenate it with anime.csv
-python3 -m "$CLEANUP_FILE" && python3 -m "$CONCATENATE_FILE"
-
-# closes the virtual environment
-deactivate
-
+echo "Cleaning and concatenating airing file with anime.csv"
+echo "--------------------------------"
+"$1" -m "$CLEANUP_SCRIPT" && "$1" -m "$CONCAT_SCRIPT"
 
 
 

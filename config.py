@@ -1,8 +1,14 @@
 from questionary import Style
 from pathlib import Path
 
+# -- user's csv name --
+user_csv = "works.csv"
+
+# -- change the way the program greets you --
+greeting = "Good morning, User" # you need to set show_greetings to True to be able to see this message
+
 # -- csv paths --
-path_user_csv = Path("./data/user/works.csv")
+path_user_csv = Path("./data/user/" + user_csv)
 path_original_airing = Path("./data/original/airing_anime.csv")
 path_modified_airing = Path("./data/modified/airing_anime_M.csv")
 path_historical_csv = Path("./data/modified/anime.csv")
@@ -37,4 +43,8 @@ blue_style = Style([
 url = "https://raw.githubusercontent.com/LeoRigasaki/Anime-dataset/refs/heads/main/data/raw/airing_anime.csv"
 cleanup = Path("setup_final.cleanup_airing")
 concatenate = Path("setup_final.concatenate")
-venv_enviroment = Path("./.venv/bin/activate")
+
+# -- Disable/Enable some features
+# set to "true" if you want to skip the verification of the files (that they exists, they are csv files and that they have information)
+disable_file_verification = True
+show_greetings = False
