@@ -52,6 +52,7 @@ while True:
 if indices_to_drop:
     # We use list(set()) to ensure we don't try to drop the same index twice
     df = df.drop(index=list(set(indices_to_drop)))
+
     df.to_csv(path_final_csv, index=False)
     
     print("\n--- Summary ---")

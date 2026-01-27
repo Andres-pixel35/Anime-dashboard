@@ -37,6 +37,13 @@ def filter_type(df, column_name):
     df = df[df[column_name].str.lower().isin(valid_type)]
     return df
 
+def sort_final(df, sort_final):
+    if sort_final.get("date"):
+        df = df.sort_values(by="start_date")
+    elif sort_final.get("title"):
+        df = df.sort_values(by="title")
+
+    return df
 
 
 

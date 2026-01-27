@@ -1,7 +1,8 @@
 import re
 import pandas as pd
 from rapidfuzz import fuzz
-from config import path_user_csv, path_historical_csv, path_final_csv, type_mappings
+from config import path_user_csv, path_historical_csv, path_final_csv, type_mappings, sort_final
+from setup_final import helpers
 
 def normalize_string(s):
     """Remove special chars, extra spaces, lowercase"""
@@ -88,6 +89,8 @@ def main():
     df = match_dfs(df1, df2)
 
     df["complete_duration"] = df["duration"] * df["episodes"]
+
+    df = helpers.sort_final(df, sort_final)
 
     df.to_csv(path_final_csv, index=False)
 

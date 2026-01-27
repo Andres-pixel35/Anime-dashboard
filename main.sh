@@ -12,6 +12,8 @@ fi
 eval $("$PY_BIN" -c "
     import config
     print(f'GREETING=\"{config.greeting}\"')
+    print(f'FINAL_CSV=\"{config.final_csv}\"')
+    print(f'USER_CSV=\"{config.user_csv}\"')
     print(f'DISABLE_VERIFICATION={str(config.disable_file_verification).lower()}')
     print(f'SHOW_GREETINGS={str(config.show_greetings).lower()}')
 ")
@@ -39,17 +41,13 @@ while true; do
     case "$action" in
         1)
             echo ""
-            echo -n "This action will match your csv with anime.csv and it will create final.csv with all" 
+            echo -n "This action will match "$USER_CSV" with anime.csv and it will create "$FINAL_CSV" with all" 
             echo " the matches and the complete information"
             if confirm "Do you want to proceed? " "Y"; then
                 "$PY_BIN" -m setup_final.match_name
-                echo "final.csv was successfully created."
+                echo ""$FINAL_CSV" was successfully created."
 
-                if ask_continue; then
-                    continue
-                else
-                    break
-                fi
+                ask_continue && continue || break
             else
                 echo "Going back to actions."
                 continue
@@ -59,20 +57,40 @@ while true; do
             echo ""
             "$PY_BIN" -m manually.add_work
 
-            if ask_continue; then
-                continue
-            else
-                break
-            fi
+            ask_continue && continue || break
         ;;
         3)
             echo ""
             "$PY_BIN" -m manually.remove_work
 
-            if ask_continue; then
-                continue
+            ask_continue && continue || break
+        ;;
+        5) 
+            echo ""
+            echo -n "This action will download airing_anime.csv from LeoRiosaki's github, then it will clean that file and "
+            echo "concatenate it with anime.csv"
+
+            if confirm "Do you want to proceed? " "Y"; then
+                ./scripts/update.sh "$PY_BIN"
+
+                ask_continue && continue || break
             else
-                break
+                echo "Going back to actions."
+                continue
+            fi
+        ;;
+        6)
+            echo ""
+            echo "This action will update the airing works in "$FINAL_CSV" with the information from airing_anime_M.csv"
+
+            if confirm "Do you want to proceed? " "Y"; then
+                "$PY_BIN" -m setup_final.update_final_csv
+                echo ""$FINAL_CSV" was successfully updated"
+
+                ask_continue && continue || break
+            else
+                echo "Going back to actions."
+                continue
             fi
         ;;
         7)
@@ -88,3 +106,5 @@ done
 echo ""
 echo "-- Closing virtual environment ---"
 deactivate
+
+exit 0

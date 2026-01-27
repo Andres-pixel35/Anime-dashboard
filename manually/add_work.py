@@ -1,6 +1,6 @@
 import pandas as pd
 import questionary
-from config import blue_style, path_historical_csv, path_final_csv 
+from config import blue_style, path_historical_csv, path_final_csv, final_csv, sort_final 
 from manually import helpers
 
 df = pd.read_csv(path_historical_csv)
@@ -51,7 +51,10 @@ while True:
 # Batch add everything at once
 if new_entries:
     final_df = pd.concat([final_df] + new_entries, ignore_index=True)
+
+    final_df = helpers.sort_final(final_df, sort_final)
+
     final_df.to_csv(path_final_csv, index=False)
-    print(f"Success! {len(new_entries)} new rows saved to CSV.")
+    print(f"Success! {len(new_entries)} new rows saved to {final_csv}.")
 else:
     print("No new changes to save.")

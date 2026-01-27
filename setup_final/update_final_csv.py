@@ -1,5 +1,6 @@
 import pandas as pd
-from config import path_modified_airing, path_final_csv 
+from config import path_modified_airing, path_final_csv, sort_final
+from setup_final import helpers 
 
 df_a = pd.read_csv(path_modified_airing)
 df_f = pd.read_csv(path_final_csv)
@@ -15,5 +16,6 @@ for _, row in df_a.iterrows():
         # Update every row that matches both criteria
         df_f.loc[mask, :] = row.values
 
-df_f = df_f.sort_values(by="start_date")
+df_f = helpers.sort_final(df_f, sort_final)
+
 df_f.to_csv(path_final_csv, index=False)

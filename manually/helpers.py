@@ -25,3 +25,11 @@ def get_title_type(answer):
         return 1, 1
 
     return clean_title, clean_type
+
+def sort_final(df, sort_final):
+    if sort_final.get("date"):
+        df = df.sort_values(by="start_date")
+    elif sort_final.get("title"):
+        df = df.sort_values(by="title")
+
+    return df

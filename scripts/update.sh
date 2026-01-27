@@ -26,6 +26,7 @@ echo "--------------------------------"
 curl -o "$SAVE_AIRING" "$URL"
 
 # cleans that new file and concatenate it with anime.csv
+echo ""
 echo "Cleaning and concatenating airing file with anime.csv"
 echo "--------------------------------"
 "$1" -m "$CLEANUP_SCRIPT" && "$1" -m "$CONCAT_SCRIPT"

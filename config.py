@@ -4,6 +4,9 @@ from pathlib import Path
 # -- user's csv name --
 user_csv = "works.csv"
 
+# -- final csv name --
+final_csv = "final.csv"
+
 # -- change the way the program greets you --
 greeting = "Good morning, User" # you need to set show_greetings to True to be able to see this message
 
@@ -12,7 +15,21 @@ path_user_csv = Path("./data/user/" + user_csv)
 path_original_airing = Path("./data/original/airing_anime.csv")
 path_modified_airing = Path("./data/modified/airing_anime_M.csv")
 path_historical_csv = Path("./data/modified/anime.csv")
-path_final_csv = Path("./data/final/final.csv")
+path_final_csv = Path("./data/final/" + final_csv)
+
+# -- Disable/Enable some features
+# set to "True" if you want to skip the verification of the files every time you run the program (that they exists, they are csv files and that they have information)
+disable_file_verification = True
+
+# Set to True is you want to see "greeting" everytime yourun the program
+show_greetings = False
+
+# Set either of them to True if you want to sort "final_csv", by default each entry will be in the order it was added.
+# Take into account that if both of them are set to True, date takes priority and will be the only one applied
+sort_final = {
+    "date": False,
+    "title": False
+}
 
 # -- match name utility --
 type_mappings = {
@@ -44,7 +61,4 @@ url = "https://raw.githubusercontent.com/LeoRigasaki/Anime-dataset/refs/heads/ma
 cleanup = Path("setup_final.cleanup_airing")
 concatenate = Path("setup_final.concatenate")
 
-# -- Disable/Enable some features
-# set to "true" if you want to skip the verification of the files (that they exists, they are csv files and that they have information)
-disable_file_verification = True
-show_greetings = False
+
