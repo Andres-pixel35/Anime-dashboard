@@ -1,7 +1,14 @@
 #! /bin/bash
 
 echo "--- Activating virtual environment ---"
-source ./.venv/bin/activate
+
+# if you prefer to use conda, add the following line changing conda for the model you are using
+# source ~/conda/etc/profile.d/conda.sh
+
+# also add this line with the actual name of your environment
+# conda activate environment 
+source ./.venv/bin/activate # delete or commment this line if you use conda
+
 source ./scripts/helpers.sh
 
 if [ -z "$PY_BIN" ]; then
@@ -9,6 +16,7 @@ if [ -z "$PY_BIN" ]; then
     exit 1
 fi
 
+# Exports variables from config.py
 eval $("$PY_BIN" -c "
     import config
     print(f'GREETING=\"{config.greeting}\"')
@@ -17,6 +25,7 @@ eval $("$PY_BIN" -c "
     print(f'DISABLE_VERIFICATION={str(config.disable_file_verification).lower()}')
     print(f'SHOW_GREETINGS={str(config.show_greetings).lower()}')
 ")
+
 if [ "$SHOW_GREETINGS" == "true" ]; then
     figlet -f slant -t -c "$GREETING" | lolcat
 fi
@@ -65,6 +74,13 @@ while true; do
 
             ask_continue && continue || break
         ;;
+        4)
+            echo ""
+            echo "To stop the app press \"ctrl + c\""
+            "$PY_BIN" -m streamlit run ./dashboard/dashboard.py
+            
+            ask_continue && continue || break
+        ;;
         5) 
             echo ""
             echo -n "This action will download airing_anime.csv from LeoRiosaki's github, then it will clean that file and "
@@ -105,6 +121,8 @@ done
         
 echo ""
 echo "-- Closing virtual environment ---"
-deactivate
+
+# conda deactivate 
+deactivate # remove or commment this line if you are using conda and add the previous one 
 
 exit 0

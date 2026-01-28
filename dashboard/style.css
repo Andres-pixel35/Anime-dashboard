@@ -1,0 +1,16 @@
+[data-testid="stMetric"] {
+    width: fit-content;
+    margin: auto;
+}
+[data-testid="stMetric"] > div {
+    width: fit-content;
+    margin: auto;
+}
+[data-testid="stMetricLabel"] > div {
+    display: flex;
+    justify-content: center;
+}
+[data-testid="stMetricValue"] > div {
+    display: flex;
+    justify-content: center;
+}

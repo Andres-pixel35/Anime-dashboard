@@ -1,6 +1,9 @@
 from questionary import Style
 from pathlib import Path
 
+# -- user's name --
+user_name = "User"
+
 # -- user's csv name --
 user_csv = "works.csv"
 
@@ -60,5 +63,8 @@ blue_style = Style([
 url = "https://raw.githubusercontent.com/LeoRigasaki/Anime-dataset/refs/heads/main/data/raw/airing_anime.csv"
 cleanup = Path("setup_final.cleanup_airing")
 concatenate = Path("setup_final.concatenate")
+
+# -- css used for streamlit -- 
+css_dashboard = "./dashboard/style.css"
 
 
