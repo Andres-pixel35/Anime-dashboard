@@ -21,7 +21,7 @@ def render_time(df):
 
     with col1:
         st.markdown("### Newest Anime")
-        st.dataframe(newest, width="stretch")
+        st.dataframe(newest, hide_index=True, width="stretch")
 
     with col2:
         st.markdown("### Oldest Anime")

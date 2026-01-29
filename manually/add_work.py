@@ -1,5 +1,5 @@
 import pandas as pd
-import questionary
+from questionary import autocomplete
 from config import blue_style, path_historical_csv, path_final_csv, final_csv, sort_final 
 from manually import helpers
 
@@ -8,15 +8,17 @@ final_df = pd.read_csv(path_final_csv)
 
 choices = helpers.get_choices(df)
 
+completer = helpers.fast_completer(choices)
+
 new_entries = []
 
 while True:
-    answer = questionary.autocomplete(
+    answer = autocomplete(
         "Enter the title (or type 'exit' to finish): ",
-        choices=choices,
-        ignore_case=True,
+        choices=[], 
+        completer=completer,
         style=blue_style,
-        qmark="💠", 
+        qmark="💠",
     ).ask()
 
     # Break condition

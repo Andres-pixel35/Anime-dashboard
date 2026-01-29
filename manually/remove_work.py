@@ -7,6 +7,8 @@ df = pd.read_csv(path_final_csv)
 
 choices = helpers.get_choices(df)
 
+completer = helpers.fast_completer(choices)
+
 # List to keep track of indices we intend to remove
 indices_to_drop = []
 # List of titles (for visual confirmation at the end)
@@ -16,7 +18,7 @@ while True:
     answer = questionary.autocomplete(
         "Enter the title you want to remove (or type 'exit' to finish): ",
         choices=choices,
-        ignore_case=True,
+        completer=completer,
         style=blue_style,
         qmark="💠", 
     ).ask()

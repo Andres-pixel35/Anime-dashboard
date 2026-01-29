@@ -2,3 +2,4 @@ pandas
 streamlit
 rapidfuzz
 questionary
+prompt_toolkit

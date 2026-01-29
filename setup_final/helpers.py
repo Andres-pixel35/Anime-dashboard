@@ -1,6 +1,6 @@
 from datetime import datetime
 
-valid_type = ["tv", "ona", "ova", "movie"]
+valid_type = ["tv", "ona", "ova", "movie", "tv_short"]
 SEASONS = ["winter", "spring", "summer", "fall"]
 
 def keep_season_only(df, column_name):

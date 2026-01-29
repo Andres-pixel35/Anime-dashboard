@@ -36,26 +36,26 @@ sort_final = {
 
 # -- match name utility --
 type_mappings = {
-    'anime': ['tv', 'ova', 'ona'],
-    'tv': ['tv', 'ova', 'ona'],
-    'movie': ['movie', 'ona', 'ova'],
-    'film': ['movie', 'ona', 'ova'],
-    'ona': ['tv', 'movie', 'ona'],
-    'ova': ['tv', 'ova', 'movie']
+    "anime": ["tv", "ova", "ona", "tv_short"],
+    "tv": ["tv", "ova", "ona", "tv_short"],
+    "movie": ["movie", "ona", "ova"],
+    "film": ["movie", "ona", "ova"],
+    "ona": ["tv", "movie", "ona", "tv_short"],
+    "ova": ["tv", "ova", "movie"]
 }
 
 # -- Questionery looks configuration --
 blue_style = Style([
-    ('qmark', 'fg:#00d7ff bold'),       # The '?' icon
-    ('question', 'fg:#ffffff bold'),     # The actual question
-    ('answer', 'fg:#005fff bold'),       # The result after you press enter
-    ('pointer', 'fg:#00d7ff bold'),      # The arrow in lists
-    ('highlighted', 'fg:#00d7ff bold'),  # The currently hovered suggestion
-    ('selected', 'fg:#00afff'),          # The selected item
-    ('text', 'fg:#e4e4e4'),              # What you type
+    ("qmark", "fg:#00d7ff bold"),       # The '?' icon
+    ("question", "fg:#ffffff bold"),     # The actual question
+    ("answer", "fg:#005fff bold"),       # The result after you press enter
+    ("pointer", "fg:#00d7ff bold"),      # The arrow in lists
+    ("highlighted", "fg:#00d7ff bold"),  # The currently hovered suggestion
+    ("selected", "fg:#00afff"),          # The selected item
+    ("text", "fg:#e4e4e4"),              # What you type
     # The dropdown menu colors
-    ('completion-menu.completion', 'bg:#000087 fg:#eeeeee'), 
-    ('completion-menu.completion.current', 'bg:#005fff fg:#ffffff'),
+    ("completion-menu.completion", "bg:#000087 fg:#eeeeee"), 
+    ("completion-menu.completion.current", "bg:#005fff fg:#ffffff"),
 ])
 
 # -- some paths used exclusively for scripts/ --
@@ -63,8 +63,5 @@ blue_style = Style([
 url = "https://raw.githubusercontent.com/LeoRigasaki/Anime-dataset/refs/heads/main/data/raw/airing_anime.csv"
 cleanup = Path("setup_final.cleanup_airing")
 concatenate = Path("setup_final.concatenate")
-
-# -- css used for streamlit -- 
-css_dashboard = "./dashboard/style.css"
 
 

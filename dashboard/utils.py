@@ -20,19 +20,19 @@ def draw_stacked_bar(df, category_col, value_col):
     category_order = df[category_col].tolist()
 
     chart = alt.Chart(df).mark_bar().encode(
-        x=alt.X(f'sum({value_col}):Q', stack="normalize", axis=None),
+        x=alt.X(f"sum({value_col}):Q", stack="normalize", axis=None),
         color=alt.Color(
-            f'{category_col}:N', 
-            sort=category_order, # Fixes the Legend order
-            scale=alt.Scale(scheme='tableau20'),
-            legend=alt.Legend(orient='bottom', title=None)
+            f"{category_col}:N", 
+            sort=category_order, #  Legend order
+            scale=alt.Scale(scheme="tableau20"),
+            legend=alt.Legend(orient="bottom", title=None)
         ),
-        # THIS IS THE MISSING PIECE:
+        
         order=alt.Order(
-            f'{value_col}:Q',
-            sort='descending' # Ensures the largest value is the first stack (left side)
+            f"{value_col}:Q",
+            sort="descending" # Ensures the largest value is the first stack (left side)
         ),
-        tooltip=[f'{category_col}:N', f'{value_col}:Q']
+        tooltip=[f"{category_col}:N", f"{value_col}:Q"]
     ).properties(
         height=100
     ).configure_view(
