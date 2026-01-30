@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Pull all paths from Python into Bash variables in one go
 # We use .as_posix() to ensure the paths use '/' regardless of OS

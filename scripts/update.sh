@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Capture Python variables into Bash environment
 eval $("$1" -c "

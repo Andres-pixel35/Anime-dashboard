@@ -1,6 +1,7 @@
 import pandas as pd
+from pathlib import Path
 from questionary import autocomplete, confirm
-from config import blue_style, path_final_csv
+from config import blue_style, path_final_csv, final_csv
 from manually import helpers
 
 df = pd.read_csv(path_final_csv)
@@ -54,14 +55,17 @@ while True:
 if indices_to_drop:
     # We use list(set()) to ensure we don't try to drop the same index twice
     df = df.drop(index=list(set(indices_to_drop)))
-
-    df.to_csv(path_final_csv, index=False)
     
     print("\n--- Summary ---")
     print(f"Successfully removed {len(removed_titles)} items:")
     for title in removed_titles:
         print(f" - {title}")
+
+    # removes file if there is no information to avoid errors with dashboard and remoce_work itself in the future
+    if len(df) == 0:
+        Path.unlink(path_final_csv)
+        print(f"\nSince you deleted all the information from {final_csv}, that file was also removed.")
+    else:  
+        df.to_csv(path_final_csv, index=False)
 else:
     print("No items were removed.")
-
-print("")

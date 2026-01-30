@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 if command -v python3 &>/dev/null; then
     export PY_BIN="python3"
