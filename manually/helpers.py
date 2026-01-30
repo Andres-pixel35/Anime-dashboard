@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 from prompt_toolkit.completion import WordCompleter, ThreadedCompleter
+from pathlib import Path
 
 def fast_completer(choices_list):
     """
@@ -53,6 +54,22 @@ def sort_final(df, sort_final):
     if sort_final.get("date"):
         df = df.sort_values(by="start_date")
     elif sort_final.get("title"):
-        df = df.sort_values(by="title")
+        df = df.sort_values(by="title", key=lambda col: col.str.lower())
 
     return df
+
+def final_exists(filepath):
+    """
+    Checks if final exists and is not empty.
+    Returns True if file exists and has content, False otherwise.
+    """
+    path = Path(filepath)
+
+    if path.is_file() and path.stat().st_size > 0:
+        return True
+    
+    return False
+
+
+
+

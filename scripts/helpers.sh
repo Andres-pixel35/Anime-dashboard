@@ -38,3 +38,19 @@ ask_continue()
         return 1
     fi
 }
+
+#Checks if final exists and is not empty.
+#Returns True if file exists and has content, False otherwise.
+final_exists()
+{
+    final_path="$1"
+    final_name="$2"
+
+    if [ -s "$final_path" ]; then
+        return 0
+    else
+        echo "You can not execute this action because "$final_name" does not exists at "$final_path", or it's empty."
+        return 1
+    fi
+
+}

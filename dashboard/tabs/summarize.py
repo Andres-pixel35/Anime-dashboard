@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from utils import custom_metric
+from helpers import custom_metric
 
 def render_summarize(df):
     local_df = df.copy()

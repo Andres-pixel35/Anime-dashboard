@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import draw_stacked_bar
+from helpers import draw_stacked_bar
 
 def render_watched(df):
     local_df = df.copy()

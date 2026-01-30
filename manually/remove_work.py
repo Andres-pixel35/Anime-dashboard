@@ -1,5 +1,5 @@
 import pandas as pd
-import questionary
+from questionary import autocomplete, confirm
 from config import blue_style, path_final_csv
 from manually import helpers
 
@@ -15,7 +15,7 @@ indices_to_drop = []
 removed_titles = []
 
 while True:
-    answer = questionary.autocomplete(
+    answer = autocomplete(
         "Enter the title you want to remove (or type 'exit' to finish): ",
         choices=choices,
         completer=completer,
@@ -38,7 +38,7 @@ while True:
     ]
 
     # Ask for confirmation
-    is_confirmed = questionary.confirm(
+    is_confirmed = confirm(
         f"Are you sure you want to remove {clean_title} ({clean_type.lower()})?",
         default=False
     ).ask()

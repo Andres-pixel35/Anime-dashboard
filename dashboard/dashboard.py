@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from config import path_final_csv, user_name 
+from config import path_final_csv, user_name
 from tabs import time, score, watched, summarize
 
 df = pd.read_csv(path_final_csv)

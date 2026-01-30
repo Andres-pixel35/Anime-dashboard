@@ -1,5 +1,5 @@
 import pandas as pd
-from config import path_modified_airing, path_final_csv, sort_final
+from config import path_modified_airing, path_final_csv, sort_final, final_csv 
 from setup_final import helpers 
 
 df_a = pd.read_csv(path_modified_airing)
@@ -17,5 +17,6 @@ for _, row in df_a.iterrows():
         df_f.loc[mask, :] = row.values
 
 df_f = helpers.sort_final(df_f, sort_final)
+print(f"{final_csv} was successfully updated")
 
 df_f.to_csv(path_final_csv, index=False)

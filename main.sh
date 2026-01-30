@@ -6,13 +6,21 @@ echo "--- Activating virtual environment ---"
 # source ~/conda/etc/profile.d/conda.sh
 
 # also add this line with the actual name of your environment
-# conda activate environment 
-source ./.venv/bin/activate # delete or commment this line if you use conda
+# conda activate environment
+# if you do the previous you should either remove or comment the following if statement
+if [ ! -z ".venv/" ]; then
+    source ./.venv/bin/activate
+else
+    echo "No virtual environment found, please create one and install the requirements."
+    echo "If you are using Conda, please add the necessary lines in main.sh"
+    exit 1
+fi
 
 source ./scripts/helpers.sh
 
 if [ -z "$PY_BIN" ]; then
     echo "ERROR: Python is required, but not found."
+    deactivate
     exit 1
 fi
 
@@ -21,6 +29,7 @@ eval $("$PY_BIN" -c "
     import config
     print(f'GREETING=\"{config.greeting}\"')
     print(f'FINAL_CSV=\"{config.final_csv}\"')
+    print(f'FINAL_PATH=\"{config.path_final_csv}\"')
     print(f'USER_CSV=\"{config.user_csv}\"')
     print(f'DISABLE_VERIFICATION={str(config.disable_file_verification).lower()}')
     print(f'SHOW_GREETINGS={str(config.show_greetings).lower()}')
@@ -32,6 +41,12 @@ fi
 
 if [ "$DISABLE_VERIFICATION" == "false" ]; then
     ./scripts/verify_files.sh "$PY_BIN"
+    status=$?
+
+    if [ "$status" -ne 0 ]; then
+        deactivate
+        exit 1
+    fi
 fi
 
 OPTIONS=( "Sync your csv" "Add work" "Remove Work" "Dashboard" "Update Airing" "Update Final" "Exit" )
@@ -53,6 +68,7 @@ while true; do
             echo -n "This action will match "$USER_CSV" with anime.csv and it will create "$FINAL_CSV" with all" 
             echo " the matches and the complete information"
             if confirm "Do you want to proceed? " "Y"; then
+                echo "Creating "$FINAL_CSV" please wait a moment..."
                 "$PY_BIN" -m setup_final.match_name
                 echo ""$FINAL_CSV" was successfully created."
 
@@ -70,15 +86,17 @@ while true; do
         ;;
         3)
             echo ""
-            "$PY_BIN" -m manually.remove_work
+            final_exists "$FINAL_PATH" "$FINAL_CSV" && "$PY_BIN" -m manually.remove_work
 
             ask_continue && continue || break
         ;;
         4)
             echo ""
-            echo "To stop the app press \"ctrl + c\""
-            "$PY_BIN" -m streamlit run ./dashboard/dashboard.py
-            
+            final_exists "$FINAL_PATH" "$FINAL_CSV" && {
+                echo "To stop the app press \"ctrl + c\""
+                "$PY_BIN" -m streamlit run ./dashboard/dashboard.py              
+            }
+ 
             ask_continue && continue || break
         ;;
         5) 
@@ -100,8 +118,7 @@ while true; do
             echo "This action will update the airing works in "$FINAL_CSV" with the information from airing_anime_M.csv"
 
             if confirm "Do you want to proceed? " "Y"; then
-                "$PY_BIN" -m setup_final.update_final_csv
-                echo ""$FINAL_CSV" was successfully updated"
+                final_exists "$FINAL_PATH" "$FINAL_CSV" && "$PY_BIN" -m setup_final.update_final_csv
 
                 ask_continue && continue || break
             else

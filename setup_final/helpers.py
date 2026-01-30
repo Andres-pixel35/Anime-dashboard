@@ -41,9 +41,6 @@ def sort_final(df, sort_final):
     if sort_final.get("date"):
         df = df.sort_values(by="start_date")
     elif sort_final.get("title"):
-        df = df.sort_values(by="title")
+        df = df.sort_values(by="title", key=lambda col: col.str.lower())
 
     return df
-
-
-

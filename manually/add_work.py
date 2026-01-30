@@ -3,8 +3,11 @@ from questionary import autocomplete
 from config import blue_style, path_historical_csv, path_final_csv, final_csv, sort_final 
 from manually import helpers
 
+final_exists = helpers.final_exists(path_final_csv)
 df = pd.read_csv(path_historical_csv)
-final_df = pd.read_csv(path_final_csv)
+
+if final_exists:
+    final_df = pd.read_csv(path_final_csv)
 
 choices = helpers.get_choices(df)
 
@@ -31,12 +34,18 @@ while True:
         continue
 
     # Check if it already exists in the main dataframe OR our current session list
-    is_in_final = final_df["title"].eq(clean_title).any()
+    if final_exists:
+        is_in_final = final_df["title"].eq(clean_title).any()
     is_in_session = any(row['title'].eq(clean_title).any() for row in new_entries)
 
-    if is_in_final or is_in_session:
-        print(f"'{clean_title}' is already in your list!")
-        continue
+    if final_exists:
+        if is_in_final or is_in_session:
+            print(f"'{clean_title}' is already in your list!")
+            continue
+    else:
+        if is_in_session:
+            print(f"'{clean_title}' is already in your list!")
+            continue
 
     # Grab the data from the source dataframe
     match = df[
@@ -52,7 +61,13 @@ while True:
 
 # Batch add everything at once
 if new_entries:
-    final_df = pd.concat([final_df] + new_entries, ignore_index=True)
+    to_concat = []
+    
+    if final_exists:
+        to_concat.append(final_df)
+    
+    # Combine existing data (if any) with the new session entries
+    final_df = pd.concat(to_concat + new_entries, ignore_index=True)
 
     final_df = helpers.sort_final(final_df, sort_final)
 

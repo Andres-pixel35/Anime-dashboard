@@ -34,6 +34,14 @@ sort_final = {
     "title": False
 }
 
+# Set modify to True if you want also want to include there the works you add mannually (or remove), 
+#it will add both the title and type
+modify_users_csv = {
+    "modify": False,
+    "english": False, # this will use the english title instead of the original if possibly (meaning its value is not null)
+    "sort": False # this will sort your original csv by title
+}
+
 # -- match name utility --
 type_mappings = {
     "anime": ["tv", "ova", "ona", "tv_short"],
