@@ -13,6 +13,9 @@ choices = helpers.get_choices(df)
 
 completer = helpers.fast_completer(choices)
 
+is_in_final = False
+is_in_session = False
+
 new_entries = []
 
 while True:
@@ -35,17 +38,18 @@ while True:
 
     # Check if it already exists in the main dataframe OR our current session list
     if final_exists:
-        is_in_final = final_df["title"].eq(clean_title).any()
-    is_in_session = any(row['title'].eq(clean_title).any() for row in new_entries)
+        # Check if clean_title matches either 'title' OR 'english_title'
+        mask = final_df["title"].eq(clean_title) | final_df["english_title"].eq(clean_title)
+        is_in_final = bool(mask.any())
 
-    if final_exists:
-        if is_in_final or is_in_session:
-            print(f"'{clean_title}' is already in your list!")
-            continue
-    else:
-        if is_in_session:
-            print(f"'{clean_title}' is already in your list!")
-            continue
+    is_in_session = any(
+        ((row['title'] == clean_title) | (row['english_title'] == clean_title)).any()
+        for row in new_entries
+    )
+ 
+    if is_in_final or is_in_session:
+        print(f"'{clean_title}' is already in your list!")
+        continue
 
     # Grab the data from the source dataframe
     match = df[
@@ -62,6 +66,8 @@ while True:
 # Batch add everything at once
 if new_entries:
     to_concat = []
+    print("\n--- Summary ---")
+    print(f"Success! {len(new_entries)} new rows saved to {final_csv}.")
     
     if final_exists:
         to_concat.append(final_df)
@@ -72,6 +78,5 @@ if new_entries:
     final_df = helpers.sort_final(final_df, sort_final)
 
     final_df.to_csv(path_final_csv, index=False, encoding="utf-8")
-    print(f"Success! {len(new_entries)} new rows saved to {final_csv}.")
 else:
     print("No new changes to save.")

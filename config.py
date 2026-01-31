@@ -22,7 +22,7 @@ path_final_csv = Path("./data/final/" + final_csv)
 
 # -- Disable/Enable some features
 # set to "True" if you want to skip the verification of the files every time you run the program (that they exists, they are csv files and that they have information)
-disable_file_verification = True
+disable_file_verification = False
 
 # Set to True is you want to see "greeting" everytime you run the program
 show_greetings = False
@@ -33,6 +33,13 @@ sort_final = {
     "date": False,
     "title": False
 }
+
+# set this to true if you care about having one piece with the episodes up to date, otherwise
+# let it as false, since it will make updating_airing to take more time 
+update_one_piece = False
+
+# -- types filter --
+valid_type = ["tv", "ona", "ova", "movie", "tv_short"]
 
 # -- match name utility --
 type_mappings = {

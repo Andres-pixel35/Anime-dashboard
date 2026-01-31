@@ -3,3 +3,4 @@ streamlit
 rapidfuzz
 questionary
 prompt_toolkit
+requests

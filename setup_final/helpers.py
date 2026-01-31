@@ -1,7 +1,8 @@
 from datetime import datetime
 import pandas as pd
+from config import valid_type
+from api import anilist
 
-valid_type = ["tv", "ona", "ova", "movie", "tv_short"]
 SEASONS = ["winter", "spring", "summer", "fall"]
 
 def keep_season_only(df, column_name):
@@ -13,7 +14,7 @@ def keep_season_only(df, column_name):
 # if the current month is bigger than 10, then we are in the last season of the year and i don't care about shutting out any anime
 # from this year, only about the next year.
 # In the opposite case, depending of the month I shutout the yet to come season.
-# as you can see in the first inner if, if we are in the first season then it shuout sping, summer and fall
+# as you can see in the first inner if, if we are in the first season then it shutout spring, summer and fall
 def filter_season(df):
     now = datetime.now()
     current_month, current_year = now.month, now.year
@@ -47,16 +48,56 @@ def sort_final(df, sort_final):
     return df
 
 def fill_episodes(df):
+    """
+    fill the null values in the column "episodes" using "next_episode_number" 
+    """
+
     df = df.copy()
+    # Ensure columns are numeric (floats)
+    df["episodes"] = pd.to_numeric(df["episodes"], errors='coerce')
+    df["next_episode_number"] = pd.to_numeric(df["next_episode_number"], errors='coerce')
     
-    for idx in df.index:
-        if pd.isna(df.loc[idx, 'episodes']):
-            next_ep = df.loc[idx, 'next_episode_number']
-            
-            if pd.notna(next_ep):
-                if next_ep > 1:
-                    df.loc[idx, 'episodes'] = next_ep - 1
-                elif next_ep == 1:
-                    df.loc[idx, 'episodes'] = 1
+    # Calculate what the "filled" values SHOULD be
+    # This creates a temporary series where next_ep 1 becomes 1, and 5 becomes 4
+    calculated_fills = (df["next_episode_number"] - 1).clip(lower=1)
+    
+    # Fill only the missing values in "episodes" using the calculation
+    df["episodes"] = df["episodes"].fillna(calculated_fills)
     
     return df
+
+def fill_season(df):
+    """
+    fill the null values in the column "season" using the month from "start_date"
+    """
+
+    df = df.copy()
+    df["start_date"] = pd.to_datetime(df["start_date"])
+    
+    # Extract months for the whole column at once
+    month = df["start_date"].dt.month
+
+    # Create masks for your conditions
+    winter = (month < 4)
+    spring = (month >= 4) & (month < 7)
+    summer = (month >= 7) & (month < 10)
+    fall = (month >= 10)
+
+    # Only fill where "season" is currently null
+    is_null = df["season"].isna()
+
+    df.loc[is_null & winter, "season"] = "WINTER"
+    df.loc[is_null & spring, "season"] = "SPRING"
+    df.loc[is_null & summer, "season"] = "SUMMER"
+    df.loc[is_null & fall, "season"] = "FALL"
+
+    return df
+
+def update_one_piece(df):
+    one_piece = anilist.fetch_anime_info("one piece", "tv")
+
+    df_final = pd.concat([df, one_piece.astype(df.dtypes)], ignore_index=True)
+
+    return df_final
+
+

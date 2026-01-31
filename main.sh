@@ -49,7 +49,7 @@ if [ "$DISABLE_VERIFICATION" == "false" ]; then
     fi
 fi
 
-OPTIONS=( "Sync your csv" "Add work" "Remove Work" "Dashboard" "Update Airing" "Update Final" "Exit" )
+OPTIONS=( "Sync your csv" "Add work" "Remove Work" "Dashboard" "Update Airing" "Update Final" "Fetch From Anilist" "Exit" )
 len=${#OPTIONS[@]}
 
 while true; do
@@ -133,6 +133,12 @@ while true; do
             fi
         ;;
         7)
+            echo ""
+            "$PY_BIN" -m api.get_anime
+
+            ask_continue && continue || break
+        ;;
+        8)
             break
         ;;
         *)
