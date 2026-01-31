@@ -19,4 +19,4 @@ for _, row in df_a.iterrows():
 df_f = helpers.sort_final(df_f, sort_final)
 print(f"{final_csv} was successfully updated")
 
-df_f.to_csv(path_final_csv, index=False)
+df_f.to_csv(path_final_csv, index=False, encoding="utf-8")

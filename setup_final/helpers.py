@@ -1,4 +1,5 @@
 from datetime import datetime
+import pandas as pd
 
 valid_type = ["tv", "ona", "ova", "movie", "tv_short"]
 SEASONS = ["winter", "spring", "summer", "fall"]
@@ -43,4 +44,19 @@ def sort_final(df, sort_final):
     elif sort_final.get("title"):
         df = df.sort_values(by="title", key=lambda col: col.str.lower())
 
+    return df
+
+def fill_episodes(df):
+    df = df.copy()
+    
+    for idx in df.index:
+        if pd.isna(df.loc[idx, 'episodes']):
+            next_ep = df.loc[idx, 'next_episode_number']
+            
+            if pd.notna(next_ep):
+                if next_ep > 1:
+                    df.loc[idx, 'episodes'] = next_ep - 1
+                elif next_ep == 1:
+                    df.loc[idx, 'episodes'] = 1
+    
     return df

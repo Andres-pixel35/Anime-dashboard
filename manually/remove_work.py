@@ -66,6 +66,6 @@ if indices_to_drop:
         Path.unlink(path_final_csv)
         print(f"\nSince you deleted all the information from {final_csv}, that file was also removed.")
     else:  
-        df.to_csv(path_final_csv, index=False)
+        df.to_csv(path_final_csv, index=False, encoding="utf-8")
 else:
     print("No items were removed.")

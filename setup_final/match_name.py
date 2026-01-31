@@ -92,7 +92,7 @@ def main():
 
     df = helpers.sort_final(df, sort_final)
 
-    df.to_csv(path_final_csv, index=False)
+    df.to_csv(path_final_csv, index=False, encoding="utf-8")
 
 if __name__ == "__main__":
     main()

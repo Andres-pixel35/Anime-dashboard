@@ -104,7 +104,7 @@ while true; do
             echo -n "This action will download airing_anime.csv from LeoRiosaki's github, then it will clean that file and "
             echo "concatenate it with anime.csv"
 
-            if confirm "Do you want to proceed? " "Y"; then
+            if confirm "Do you want to proceed?" "Y"; then
                 ./scripts/update.sh "$PY_BIN"
                 status=$?
 
@@ -123,7 +123,7 @@ while true; do
             echo ""
             echo "This action will update the airing works in "$FINAL_CSV" with the information from airing_anime_M.csv"
 
-            if confirm "Do you want to proceed? " "Y"; then
+            if confirm "Do you want to proceed?" "Y"; then
                 final_exists "$FINAL_PATH" "$FINAL_CSV" && "$PY_BIN" -m setup_final.update_final_csv
 
                 ask_continue && continue || break

@@ -22,10 +22,10 @@ path_final_csv = Path("./data/final/" + final_csv)
 
 # -- Disable/Enable some features
 # set to "True" if you want to skip the verification of the files every time you run the program (that they exists, they are csv files and that they have information)
-disable_file_verification = False
+disable_file_verification = True
 
 # Set to True is you want to see "greeting" everytime you run the program
-show_greetings = True
+show_greetings = False
 
 # Set either of them to True if you want to sort "final_csv", by default each entry will be in the order it was added.
 # Take into account that if both of them are set to True, date takes priority and will be the only one applied

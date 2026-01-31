@@ -12,4 +12,4 @@ df = df_combined.drop_duplicates(subset=["title", "type"], keep="last")
 df.loc[:,"start_date"] = pd.to_datetime(df["start_date"]).dt.date
 df = df.sort_values(by="start_date")
 
-df.to_csv(path_historical_csv, index=False)
+df.to_csv(path_historical_csv, index=False, encoding="utf-8")

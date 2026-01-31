@@ -71,7 +71,7 @@ if new_entries:
 
     final_df = helpers.sort_final(final_df, sort_final)
 
-    final_df.to_csv(path_final_csv, index=False)
+    final_df.to_csv(path_final_csv, index=False, encoding="utf-8")
     print(f"Success! {len(new_entries)} new rows saved to {final_csv}.")
 else:
     print("No new changes to save.")
