@@ -5,37 +5,49 @@ from tabs import time, score, watched, summarize
 
 df = pd.read_csv(path_final_csv)
 
+df["start_date"] = pd.to_datetime(df["start_date"])
+
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    st.header("FIlter type")
-    choices = st.multiselect("Pick types:", df['type'].unique())
+    st.header("Filters")
+    type_choice = st.multiselect("Filter types:", df['type'].unique())
+    type_year = st.multiselect("Filter year", sorted(df["start_date"].dt.year.unique()))
 
     st.info("You may choose more than one option")
 
-if choices:
-    df = df[df['type'].isin(choices)]
+# apply filters, provided they were chose 
+if type_choice and type_year:
+    df = df[(df['type'].isin(type_choice)) & (df["start_date"].dt.year.isin(type_year))]
+elif type_choice:
+    df = df[df["type"].isin(type_choice)]
+elif type_year:
+    df = df[df["start_date"].dt.year.isin(type_year)]
 
-st.title(f"{user_name}'s Anime Dashboard")
+if df.empty:
+    st.warning("No data found for the selected year(s) or/and filter(s). Try picking a different filter!")
+else:
 
-#  tabs names
-tab1, tab2, tab3, tab4 = st.tabs(["Summarize", "Watched", "Time", "Score"])
+    st.title(f"{user_name}'s Anime Dashboard")
 
-# Content for Tab 1
-with tab1:
-    summarize.render_summarize(df)
+    #  tabs names
+    tab1, tab2, tab3, tab4 = st.tabs(["Summarize", "Watched", "Time", "Score"])
 
-# Content for Tab 2
-with tab2:
-    watched.render_watched(df)
+    # Content for Tab 1
+    with tab1:
+        summarize.render_summarize(df)
 
-# Content for Tab 3
-with tab3:
-    time.render_time(df)
+    # Content for Tab 2
+    with tab2:
+        watched.render_watched(df)
 
-# Content for Tab 4
-with tab4:
-    score.render_score(df)
+    # Content for Tab 3
+    with tab3:
+        time.render_time(df)
+
+    # Content for Tab 4
+    with tab4:
+        score.render_score(df)
 
 
 

@@ -36,6 +36,8 @@ if title.strip() and work_type:
             df = df.sort_values(by="start_date")
 
             df.to_csv(path_historical_csv, index=False, encoding="utf-8")
+
+            print(f"{title_val.title()} ({type_val.lower()}) was successfully added to anime.csv")
         else:
             print(f"{title_val.title()} ({type_val.lower()}) already exists in anime.csv")
 else:
