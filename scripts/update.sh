@@ -23,13 +23,17 @@ for bash_var, value in vars_to_export.items():
 echo ""
 echo "Downloading airing_anime.csv from Github"
 echo "--------------------------------"
-curl -o "$SAVE_AIRING" "$URL"
+if ! curl -f -L -o "$SAVE_AIRING" "$URL"; then
+    echo "Download of airing_anime.csv from GitHub failed"
+    exit 1
+fi
 
 # cleans that new file and concatenate it with anime.csv
 echo ""
 echo "Cleaning and concatenating airing file with anime.csv"
 echo "--------------------------------"
 "$1" -m "$CLEANUP_SCRIPT" && "$1" -m "$CONCAT_SCRIPT"
+exit 0
 
 
 

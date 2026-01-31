@@ -106,6 +106,12 @@ while true; do
 
             if confirm "Do you want to proceed? " "Y"; then
                 ./scripts/update.sh "$PY_BIN"
+                status=$?
+
+                if [ "$status" -ne 0 ]; then
+                    deactivate
+                    exit 1
+                fi
 
                 ask_continue && continue || break
             else

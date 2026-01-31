@@ -22,24 +22,16 @@ path_final_csv = Path("./data/final/" + final_csv)
 
 # -- Disable/Enable some features
 # set to "True" if you want to skip the verification of the files every time you run the program (that they exists, they are csv files and that they have information)
-disable_file_verification = True
+disable_file_verification = False
 
-# Set to True is you want to see "greeting" everytime yourun the program
-show_greetings = False
+# Set to True is you want to see "greeting" everytime you run the program
+show_greetings = True
 
 # Set either of them to True if you want to sort "final_csv", by default each entry will be in the order it was added.
 # Take into account that if both of them are set to True, date takes priority and will be the only one applied
 sort_final = {
     "date": False,
     "title": False
-}
-
-# Set modify to True if you want also want to include there the works you add mannually (or remove), 
-#it will add both the title and type
-modify_users_csv = {
-    "modify": False,
-    "english": False, # this will use the english title instead of the original if possibly (meaning its value is not null)
-    "sort": False # this will sort your original csv by title
 }
 
 # -- match name utility --
@@ -68,7 +60,7 @@ blue_style = Style([
 
 # -- some paths used exclusively for scripts/ --
 # airing_anime.csv from LeoRiosaki's github
-url = "https://raw.githubusercontent.com/LeoRigasaki/Anime-dataset/refs/heads/main/data/raw/airing_anime.csv"
+url = "https://raw.githubusercontent.com/LeoRigasaki/Anime-dataset/refs/heads/main/data/raw/airing_anime.csv" 
 cleanup = Path("setup_final.cleanup_airing")
 concatenate = Path("setup_final.concatenate")
 
