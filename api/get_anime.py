@@ -31,7 +31,7 @@ if title.strip() and work_type:
             new_entry = helpers.fill_season(new_entry)
 
             # concatenate both of them
-            df = pd.concat([df1, new_entry], ignore_index=True)
+            df = pd.concat([df1, new_entry.astype(df1.dtypes)], ignore_index=True)
             df.loc[:,"start_date"] = pd.to_datetime(df["start_date"]).dt.date
             df = df.sort_values(by="start_date")
             

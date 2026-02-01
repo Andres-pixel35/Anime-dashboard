@@ -101,4 +101,8 @@ def update_one_piece(df):
 
     return df_final
 
+def show_unmatched(titles: list): 
+    print("\n--- Unmatched Anime ---")
+    for title in titles: 
+        print(f"- {title}")
 

@@ -38,6 +38,9 @@ sort_final = {
 # let it as false, since it will make updating_airing to take more time 
 update_one_piece = True
 
+# set this to True if when sync your csv with anime csv you want to see which anime from your csv weren't match.
+show_unmatched = False
+
 # -- types filter --
 valid_type = ["tv", "ona", "ova", "movie", "tv_short"]
 

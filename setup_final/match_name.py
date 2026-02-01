@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 from rapidfuzz import fuzz
-from config import path_user_csv, path_historical_csv, path_final_csv, type_mappings, sort_final, final_csv
+from config import path_user_csv, path_historical_csv, path_final_csv, type_mappings, sort_final, final_csv, show_unmatched
 from setup_final import helpers
 
 def normalize_string(s):
@@ -28,6 +28,7 @@ def match_dfs(df1, df2, similarity_threshold=85):
     
     matched_rows = []
     unmatched_rows = []
+    unmatched_titles = []
     
     # Phase 1: Exact matching
     for idx, row in df1.iterrows():
@@ -72,6 +73,8 @@ def match_dfs(df1, df2, similarity_threshold=85):
         
         if best_match is not None:
             matched_rows.append(best_match)
+        else:
+            unmatched_titles.append(row.iloc[0])
     
     # Create result dataframe (only df2 columns)
     df_result = pd.DataFrame(matched_rows).reset_index(drop=True)
@@ -80,23 +83,26 @@ def match_dfs(df1, df2, similarity_threshold=85):
     if not df_result.empty:
         df_result = df_result.drop(columns=['name_norm', 'name_en_norm', 'type_norm'])
     
-    return df_result
+    return df_result, unmatched_titles
 
 def main():
     df1 = pd.read_csv(path_user_csv)
     df2 = pd.read_csv(path_historical_csv)
 
-    df = match_dfs(df1, df2)
+    df, unmatched_titles = match_dfs(df1, df2)
 
     df["complete_duration"] = df["duration"] * df["episodes"]
 
     df = helpers.sort_final(df, sort_final)
 
+    if show_unmatched:
+        helpers.show_unmatched(unmatched_titles)
+
     try:
         df.to_csv(path_final_csv, index=False, encoding="utf-8")
-        print(f"{final_csv} was successfully created at {path_final_csv}")
+        print(f"\n{final_csv} was successfully created at {path_final_csv}")
     except Exception as e:
-        print(f"Error creating {final_csv}: {e}")
+        print(f"\nError creating {final_csv}: {e}")
         raise
 
 if __name__ == "__main__":
