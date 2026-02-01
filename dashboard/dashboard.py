@@ -11,18 +11,18 @@ st.set_page_config(layout="wide")
 
 with st.sidebar:
     st.header("Filters")
-    type_year = st.multiselect("Filter year", sorted(df["start_date"].dt.year.unique()))
+    choice_year = st.multiselect("Filter year", sorted(df["start_date"].dt.year.unique()))
     type_choice = st.multiselect("Filter type:", df["type"].unique())
 
     st.info("You may choose more than one option")
 
 # apply filters, provided they were chose 
-if type_choice and type_year:
-    df = df[(df['type'].isin(type_choice)) & (df["start_date"].dt.year.isin(type_year))]
+if type_choice and choice_year:
+    df = df[(df['type'].isin(type_choice)) & (df["start_date"].dt.year.isin(choice_year))]
 elif type_choice:
     df = df[df["type"].isin(type_choice)]
-elif type_year:
-    df = df[df["start_date"].dt.year.isin(type_year)]
+elif choice_year:
+    df = df[df["start_date"].dt.year.isin(choice_year)]
 
 if df.empty:
     st.warning("No data found for the selected year(s) or/and type(s). Try picking a different filter!")
