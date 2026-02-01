@@ -12,4 +12,9 @@ df = df_combined.drop_duplicates(subset=["title", "type"], keep="last")
 df.loc[:,"start_date"] = pd.to_datetime(df["start_date"]).dt.date
 df = df.sort_values(by="start_date")
 
-df.to_csv(path_historical_csv, index=False, encoding="utf-8")
+try:
+    df.to_csv(path_historical_csv, index=False, encoding="utf-8")
+    print(f"\nanime.csv was succesfully saved at {path_historical_csv}")
+except Exception as e:
+    print(f"\nError saving anime.csv: {e}")
+    raise

@@ -26,4 +26,11 @@ df = helpers.fill_season(df)
 # and remove the column we no longer need
 df = df.drop("next_episode_number", axis=1)
 
-df.to_csv(path_modified_airing, index=False, encoding="utf-8")
+df = df.sort_values(by="start_date")
+
+try:
+    df.to_csv(path_modified_airing, index=False, encoding="utf-8")
+    print(f"\nairing_anime.csv succesfully saved at {path_modified_airing}.")
+except Exception as e:
+    print(f"\nError saving airing_anime.csv: {e}")
+    raise

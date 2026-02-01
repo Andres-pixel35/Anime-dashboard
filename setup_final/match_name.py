@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 from rapidfuzz import fuzz
-from config import path_user_csv, path_historical_csv, path_final_csv, type_mappings, sort_final
+from config import path_user_csv, path_historical_csv, path_final_csv, type_mappings, sort_final, final_csv
 from setup_final import helpers
 
 def normalize_string(s):
@@ -92,7 +92,12 @@ def main():
 
     df = helpers.sort_final(df, sort_final)
 
-    df.to_csv(path_final_csv, index=False, encoding="utf-8")
+    try:
+        df.to_csv(path_final_csv, index=False, encoding="utf-8")
+        print(f"{final_csv} was successfully created at {path_final_csv}")
+    except Exception as e:
+        print(f"Error creating {final_csv}: {e}")
+        raise
 
 if __name__ == "__main__":
     main()

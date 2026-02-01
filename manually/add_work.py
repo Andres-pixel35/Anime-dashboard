@@ -66,8 +66,7 @@ while True:
 # Batch add everything at once
 if new_entries:
     to_concat = []
-    print("\n--- Summary ---")
-    print(f"Success! {len(new_entries)} new rows saved to {final_csv}.")
+    
     
     if final_exists:
         to_concat.append(final_df)
@@ -77,6 +76,12 @@ if new_entries:
 
     final_df = helpers.sort_final(final_df, sort_final)
 
-    final_df.to_csv(path_final_csv, index=False, encoding="utf-8")
+    try:
+        final_df.to_csv(path_final_csv, index=False, encoding="utf-8")
+        print("\n--- Summary ---")
+        print(f"Success! {len(new_entries)} new rows saved to {final_csv}.")
+    except Exception as e:
+        print(f"Error saving {final_csv}: {e}")
+        raise
 else:
     print("No new changes to save.")

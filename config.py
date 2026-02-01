@@ -36,7 +36,7 @@ sort_final = {
 
 # set this to true if you care about having one piece with the episodes up to date, otherwise
 # let it as false, since it will make updating_airing to take more time 
-update_one_piece = False
+update_one_piece = True
 
 # -- types filter --
 valid_type = ["tv", "ona", "ova", "movie", "tv_short"]

@@ -56,16 +56,21 @@ if indices_to_drop:
     # We use list(set()) to ensure we don't try to drop the same index twice
     df = df.drop(index=list(set(indices_to_drop)))
     
-    print("\n--- Summary ---")
-    print(f"Successfully removed {len(removed_titles)} items:")
-    for title in removed_titles:
-        print(f" - {title}")
+    
 
     # removes file if there is no information to avoid errors with dashboard and remoce_work itself in the future
     if len(df) == 0:
         Path.unlink(path_final_csv)
         print(f"\nSince you deleted all the information from {final_csv}, that file was also removed.")
-    else:  
-        df.to_csv(path_final_csv, index=False, encoding="utf-8")
+    else: 
+        try:
+            df.to_csv(path_final_csv, index=False, encoding="utf-8")
+            print("\n--- Summary ---")
+            print(f"Successfully removed {len(removed_titles)} items:")
+            for title in removed_titles:
+                print(f" - {title}")
+        except Exception as e:
+            print(f"Error saving {final_csv}: {e}")
+            raise
 else:
     print("No items were removed.")

@@ -11,8 +11,8 @@ st.set_page_config(layout="wide")
 
 with st.sidebar:
     st.header("Filters")
-    type_choice = st.multiselect("Filter types:", df['type'].unique())
     type_year = st.multiselect("Filter year", sorted(df["start_date"].dt.year.unique()))
+    type_choice = st.multiselect("Filter type:", df["type"].unique())
 
     st.info("You may choose more than one option")
 
@@ -25,7 +25,7 @@ elif type_year:
     df = df[df["start_date"].dt.year.isin(type_year)]
 
 if df.empty:
-    st.warning("No data found for the selected year(s) or/and filter(s). Try picking a different filter!")
+    st.warning("No data found for the selected year(s) or/and type(s). Try picking a different filter!")
 else:
 
     st.title(f"{user_name}'s Anime Dashboard")

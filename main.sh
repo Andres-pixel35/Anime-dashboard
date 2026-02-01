@@ -42,11 +42,7 @@ fi
 if [ "$DISABLE_VERIFICATION" == "false" ]; then
     ./scripts/verify_files.sh "$PY_BIN"
     status=$?
-
-    if [ "$status" -ne 0 ]; then
-        deactivate
-        exit 1
-    fi
+    check_status "$status"
 fi
 
 OPTIONS=( "Sync your csv" "Add work" "Remove Work" "Dashboard" "Update Airing" "Update Final" "Fetch From Anilist" "Exit" )
@@ -70,7 +66,9 @@ while true; do
             if confirm "Do you want to proceed? " "Y"; then
                 echo "Creating "$FINAL_CSV" please wait a moment..."
                 "$PY_BIN" -m setup_final.match_name
-                echo ""$FINAL_CSV" was successfully created."
+
+                status=$?
+                check_status "$status"
 
                 ask_continue && continue || break
             else
@@ -81,12 +79,18 @@ while true; do
         2)
             echo ""
             "$PY_BIN" -m manually.add_work
+            
+            status=$?
+            check_status "$status"
 
             ask_continue && continue || break
         ;;
         3)
             echo ""
             final_exists "$FINAL_PATH" "$FINAL_CSV" && "$PY_BIN" -m manually.remove_work
+
+            status=$?
+            check_status "$status"
 
             ask_continue && continue || break
         ;;
@@ -106,12 +110,9 @@ while true; do
 
             if confirm "Do you want to proceed?" "Y"; then
                 ./scripts/update.sh "$PY_BIN"
-                status=$?
 
-                if [ "$status" -ne 0 ]; then
-                    deactivate
-                    exit 1
-                fi
+                status=$?
+                check_status "$status"
 
                 ask_continue && continue || break
             else
@@ -126,6 +127,9 @@ while true; do
             if confirm "Do you want to proceed?" "Y"; then
                 final_exists "$FINAL_PATH" "$FINAL_CSV" && "$PY_BIN" -m setup_final.update_final_csv
 
+                status=$?
+                check_status "$status"
+
                 ask_continue && continue || break
             else
                 echo "Going back to actions."
@@ -135,6 +139,9 @@ while true; do
         7)
             echo ""
             "$PY_BIN" -m api.get_anime
+
+            status=$?
+            check_status "$status"
 
             ask_continue && continue || break
         ;;

@@ -94,6 +94,7 @@ def fill_season(df):
     return df
 
 def update_one_piece(df):
+    print("Updatin One Piece (if you don't want this disable it in config.py)")
     one_piece = anilist.fetch_anime_info("one piece", "tv")
 
     df_final = pd.concat([df, one_piece.astype(df.dtypes)], ignore_index=True)

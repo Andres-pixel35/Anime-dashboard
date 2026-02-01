@@ -17,6 +17,10 @@ for _, row in df_a.iterrows():
         df_f.loc[mask, :] = row.values
 
 df_f = helpers.sort_final(df_f, sort_final)
-print(f"{final_csv} was successfully updated")
 
-df_f.to_csv(path_final_csv, index=False, encoding="utf-8")
+try:
+    df_f.to_csv(path_final_csv, index=False, encoding="utf-8")
+    print(f"{final_csv} was successfully updated")
+except Exception as e:
+    print(f"Error updating {final_csv}: {e}")
+    raise

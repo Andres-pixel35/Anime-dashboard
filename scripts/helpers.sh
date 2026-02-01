@@ -54,3 +54,15 @@ final_exists()
     fi
 
 }
+
+# checks the exits status to ensure the program does not carry on after an error
+# the only argument received is such exit status
+check_status()
+{
+    status="$1"
+    if [ "$status" -ne 0 ]; then
+        echo "Shutting down..."
+        deactivate # if usin conda, change this to conda deactivate
+        exit 1
+    fi
+}
