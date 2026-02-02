@@ -1,23 +1,15 @@
 #!/bin/bash
 
 # Pull all paths from Python into Bash variables in one go
-# We use .as_posix() to ensure the paths use '/' regardless of OS
-eval $("$1" -c "
-from pathlib import Path
-import config
-
-paths = {
-    'ORIGINAL_AIRING': config.path_original_airing,
-    'MODIFIED_AIRING': config.path_modified_airing,
-    'HISTORICAL_CSV': config.path_historical_csv
-}
-
-for var_name, path_obj in paths.items():
-    print(f'{var_name}=\"{path_obj.as_posix()}\"')
+eval $("$PY_BIN" -c "
+    import config
+    print(f'ORIGINAL_AIRING=\"{config.path_original_airing}\"')
+    print(f'MODIFIED_AIRING=\"{config.path_modified_airing}\"')
+    print(f'HISTORICAL_CSV=\"{config.path_historical_csv}\"')
 ")
 
 # Put them in a list to iterate through the checks
-files_paths=("$USER_CSV" "$ORIGINAL_AIRING" "$MODIFIED_AIRING" "$HISTORICAL_CSV")
+files_paths=("$ORIGINAL_AIRING" "$MODIFIED_AIRING" "$HISTORICAL_CSV")
 
 echo ""
 echo "--- Starting verification of data files ---"

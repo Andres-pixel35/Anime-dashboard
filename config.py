@@ -1,5 +1,4 @@
 from questionary import Style
-from pathlib import Path
 
 # -- user's name --
 user_name = "User"
@@ -14,11 +13,11 @@ final_csv = "final.csv"
 greeting = "Good morning, User" # you need to set show_greetings to True to be able to see this message
 
 # -- csv paths --
-path_user_csv = Path("./data/user/" + user_csv)
-path_original_airing = Path("./data/original/airing_anime.csv")
-path_modified_airing = Path("./data/modified/airing_anime_M.csv")
-path_historical_csv = Path("./data/modified/anime.csv")
-path_final_csv = Path("./data/final/" + final_csv)
+path_user_csv = "./data/user/" + user_csv
+path_original_airing = "./data/original/airing_anime.csv"
+path_modified_airing = "./data/modified/airing_anime_M.csv"
+path_historical_csv = "./data/modified/anime.csv"
+path_final_csv = "./data/final/" + final_csv
 
 # -- Disable/Enable some features
 # set to "True" if you want to skip the verification of the files every time you run the program (that they exists, they are csv files and that they have information)
