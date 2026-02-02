@@ -8,7 +8,7 @@ echo "--- Activating virtual environment ---"
 # also add this line with the actual name of your environment
 # conda activate environment
 # if you do the previous you should either remove or comment the following if statement
-if [ ! -z ".venv/" ]; then
+if [ -d ".venv/" ]; then
     source ./.venv/bin/activate
 else
     echo "No virtual environment found, please create one and install the requirements."
