@@ -1,22 +1,12 @@
 #!/bin/bash
 
 # Capture Python variables into Bash environment
-eval $("$1" -c "
-from pathlib import Path
-import config
-
-# Map your Python variables to Bash names
-vars_to_export = {
-    'URL': config.url,
-    'CLEANUP_SCRIPT': config.cleanup,
-    'CONCAT_SCRIPT': config.concatenate,
-    'SAVE_AIRING': config.path_original_airing
-}
-
-for bash_var, value in vars_to_export.items():
-    # Convert Path objects to strings, keep strings as is
-    val_str = value.as_posix() if isinstance(value, Path) else value
-    print(f'{bash_var}=\"{val_str}\"')
+eval $("$PY_BIN" -c "
+    import config
+    print(f'URL=\"{config.url}\"')
+    print(f'CLEANUP_SCRIPT=\"{config.cleanup}\"')
+    print(f'CONCAT_SCRIPT=\"{config.concatenate}\"')
+    print(f'SAVE_AIRING=\"{config.path_original_airing}\"')
 ")
 
 # download the new airing_anime.csv

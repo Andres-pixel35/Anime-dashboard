@@ -23,7 +23,7 @@ sudo pacman -S curl figlet lolcat
 **Python 3** is the only essential language dependency.
 
 ## Input Data Format
-The program expects an optional matching text file (default: `works.csv`) if you wish to import an existing list.
+The program expects an optional matching text file (default: `works.csv`) if you wish to import an existing list move your csv to data/user/.
 - **Format**: A CSV file with exactly **2 columns** in this order: `title`, `type`.
   - The specific column *header names* do not matter, only the order.
 - **Type Matching**: The `type` column is essential for accurate matching (e.g., distinguishing between a TV show and a Movie).
@@ -52,9 +52,9 @@ You can enable or disable specific features by toggling the boolean variables:
 ## Installation
 
 1. Clone the repository.
-```bash
-git clone https://github.com/Andres-pixel35/Anime-dashboard.git
-```
+    ```bash
+    git clone https://github.com/Andres-pixel35/Anime-dashboard.git
+    ```
 2. Create and activate a virtual environment:
    ```bash
    python -m venv .venv
