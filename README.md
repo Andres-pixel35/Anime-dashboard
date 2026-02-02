@@ -52,6 +52,9 @@ You can enable or disable specific features by toggling the boolean variables:
 ## Installation
 
 1. Clone the repository.
+```bash
+git clone https://github.com/Andres-pixel35/Anime-dashboard.git
+```
 2. Create and activate a virtual environment:
    ```bash
    python -m venv .venv
@@ -66,8 +69,7 @@ You can enable or disable specific features by toggling the boolean variables:
    ```bash
    chmod +x main.sh scripts/*.sh
    ```
-   > [!IMPORTANT]
-   > I encourage you to check the contents of these files before granting them permissions—always verify what you are about to execute!
+   > I encourage you to check the contents of these files before granting them permissions. Always verify what you are about to execute!
 
 ## Usage
 
