@@ -34,17 +34,20 @@ sort_final = {
     "title": False
 }
 
-# set this to true if you care about having one piece with the episodes up to date, otherwise
+# set this to True if you care about having one piece with the episodes up to date, otherwise
 # let it as false, since it will make updating_airing to take more time 
-update_one_piece = True
+update_one_piece = False
 
-# set this to True if when sync your csv with anime csv you want to see which anime from your csv weren't match.
-show_unmatched = False
+# set this to False if you don't want to see the titles left unmatched at "sync your csv"
+show_unmatched = True
 
 # -- types filter --
-valid_type = ["tv", "ona", "ova", "movie", "tv_short"]
+valid_type = ["tv", "ona", "ova", "movie", "tv_short"] # these are the types the program will keep from airinga_anime.csv
 
 # -- match name utility --
+# if in your csv you tagged them with different names, here you can adapt them to you so they will match perfectly
+# For example, instead of anime or tv you tagged them in your csv as "serie", then you just need to change either
+# anime or tv for serie and they will be matched
 type_mappings = {
     "anime": ["tv", "ova", "ona", "tv_short"],
     "tv": ["tv", "ova", "ona", "tv_short"],
@@ -55,6 +58,7 @@ type_mappings = {
 }
 
 # -- Questionery looks configuration --
+# here you can change the look of the thing that appears when you want to add a work or remove it.
 blue_style = Style([
     ("qmark", "fg:#00d7ff bold"),       # The '?' icon
     ("question", "fg:#ffffff bold"),     # The actual question
@@ -69,9 +73,10 @@ blue_style = Style([
 ])
 
 # -- some paths used exclusively for scripts/ --
+# do not change anything here, unless the url changes. Should that happen, then check first the repository of this program.
 # airing_anime.csv from LeoRiosaki's github
 url = "https://raw.githubusercontent.com/LeoRigasaki/Anime-dataset/refs/heads/main/data/raw/airing_anime.csv" 
-cleanup = Path("setup_final.cleanup_airing")
-concatenate = Path("setup_final.concatenate")
+cleanup = "setup_final.cleanup_airing"
+concatenate = "setup_final.concatenate"
 
 

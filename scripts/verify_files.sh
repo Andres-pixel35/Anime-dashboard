@@ -7,7 +7,6 @@ from pathlib import Path
 import config
 
 paths = {
-    'USER_CSV': config.path_user_csv,
     'ORIGINAL_AIRING': config.path_original_airing,
     'MODIFIED_AIRING': config.path_modified_airing,
     'HISTORICAL_CSV': config.path_historical_csv

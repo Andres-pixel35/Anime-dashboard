@@ -31,6 +31,7 @@ eval $("$PY_BIN" -c "
     print(f'FINAL_CSV=\"{config.final_csv}\"')
     print(f'FINAL_PATH=\"{config.path_final_csv}\"')
     print(f'USER_CSV=\"{config.user_csv}\"')
+    print(f'PATH_USER_CSV=\"{config.path_user_csv}\"')
     print(f'DISABLE_VERIFICATION={str(config.disable_file_verification).lower()}')
     print(f'SHOW_GREETINGS={str(config.show_greetings).lower()}')
 ")
@@ -60,20 +61,24 @@ while true; do
 
     case "$action" in
         1)
-            echo ""
-            echo -n "This action will match "$USER_CSV" with anime.csv and it will create "$FINAL_CSV" with all" 
-            echo " the matches and the complete information"
-            if confirm "Do you want to proceed? " "Y"; then
-                echo "Creating "$FINAL_CSV" please wait a moment..."
-                "$PY_BIN" -m setup_final.match_name
+            if file_exists "$PATH_USER_CSV" "$USER_CSV"; then
+                echo ""
+                echo -n "This action will match "$USER_CSV" with anime.csv and it will create "$FINAL_CSV" with all" 
+                echo " the matches and the complete information"
+                if confirm "Do you want to proceed? " "Y"; then
+                    echo "Creating "$FINAL_CSV" please wait a moment..."
+                    "$PY_BIN" -m setup_final.match_name
 
-                status=$?
-                check_status "$status"
+                    status=$?
+                    check_status "$status"
 
-                ask_continue && continue || break
+                    ask_continue && continue || break
+                else
+                    echo "Going back to actions."
+                    continue
+                fi
             else
-                echo "Going back to actions."
-                continue
+                ask_continue && continue || break
             fi
         ;;
         2)
@@ -87,16 +92,20 @@ while true; do
         ;;
         3)
             echo ""
-            final_exists "$FINAL_PATH" "$FINAL_CSV" && "$PY_BIN" -m manually.remove_work
+            if file_exists "$FINAL_PATH" "$FINAL_CSV"; then 
+                "$PY_BIN" -m manually.remove_work
 
-            status=$?
-            check_status "$status"
+                status=$?
+                check_status "$status"
 
-            ask_continue && continue || break
+                ask_continue && continue || break
+            else
+                ask_continue && continue || break
+            fi
         ;;
         4)
             echo ""
-            final_exists "$FINAL_PATH" "$FINAL_CSV" && {
+            file_exists "$FINAL_PATH" "$FINAL_CSV" && {
                 echo "To stop the app press \"ctrl + c\""
                 "$PY_BIN" -m streamlit run ./dashboard/dashboard.py              
             }
@@ -122,18 +131,22 @@ while true; do
         ;;
         6)
             echo ""
-            echo "This action will update the airing works in "$FINAL_CSV" with the information from airing_anime_M.csv"
+            if file_exists "$FINAL_PATH" "$FINAL_CSV"; then
+                echo "This action will update the airing works in "$FINAL_CSV" with the information from airing_anime_M.csv"
 
-            if confirm "Do you want to proceed?" "Y"; then
-                final_exists "$FINAL_PATH" "$FINAL_CSV" && "$PY_BIN" -m setup_final.update_final_csv
+                if confirm "Do you want to proceed?" "Y"; then
+                    "$PY_BIN" -m setup_final.update_final_csv
 
-                status=$?
-                check_status "$status"
+                    status=$?
+                    check_status "$status"
 
-                ask_continue && continue || break
+                    ask_continue && continue || break
+                else
+                    echo "Going back to actions."
+                    continue
+                fi
             else
-                echo "Going back to actions."
-                continue
+                ask_continue && continue || break
             fi
         ;;
         7)
