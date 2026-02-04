@@ -124,7 +124,8 @@ The historical dataset (`anime.csv`) used in this project has been processed to 
 
 This project is provided **"as is"** for **personal and academic purposes**.
 
+## Contact 
 If you encounter errors or have suggestions for improvement, please contact me at:
-**riosandres294@gmail.com**
+**yumioharaka@gmail.com**
 
 If you found an anime missing in anime.csv and you decided to added, please let me know so I can also added here.
