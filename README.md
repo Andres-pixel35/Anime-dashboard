@@ -2,7 +2,7 @@
 
 A comprehensive dashboard to analyze and visualize key statistics of your watched anime. This program calculates detailed metrics by matching your personal watch history (`works.csv`) with a historical database (`anime.csv`). It enriches your data with information such as start dates, seasons, episodes, duration, genres, and tags, presenting it all in an interactive Streamlit dashboard.
 
-If you want to see how the dashboard will look like, head over my [persona dashboard](https://personaldashboardanime-eshawkuivkvnxkkxpyvao8.streamlit.app/)
+If you want to see how the dashboard will look like, head over my [personal dashboard](https://personaldashboardanime-eshawkuivkvnxkkxpyvao8.streamlit.app/) or watch this [video](https://www.youtube.com/watch?v=_RlKXeZYyIw) that shows off a bit of this program usage and installation.
 
 > [!CAUTION]
 > **Disclaimer:** This program likely will only work in a terminal environment (Linux/Unix), and surely not in Windows (unless using WSL).
@@ -115,6 +115,7 @@ The historical dataset (`anime.csv`) used in this project has been processed to 
 ## Acknowledgements
 
 - **Anilist**: For providing the API used to fetch anime metadata.
+- **Streamlit**: For providing the tool to create the web app and host the dashboard.
 - **LeoRigasaki**: For the core datasets used in this project.
   - `anime.csv`: Original historical dataset (cleaned slightly for this dashboard).
   - `airing_anime.csv`: Maintained and updated by them.
