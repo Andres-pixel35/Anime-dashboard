@@ -25,20 +25,17 @@ with st.sidebar:
 if choice_type:
     df = df[df["type"].isin(choice_type)]
 
-# 3. Apply Year Filter
 if choice_year:
     df = df[df["start_date"].dt.year.isin(choice_year)]
 
-# 4. Apply Genre Filter (Handles lists within cells)
 if choice_genre:
     df = df[df["genres"].apply(lambda x: any(g in x for g in choice_genre))]
 
-# 5. Apply Tag Filter (Handles lists within cells)
 if choice_tag:
     df = df[df["tags"].apply(lambda x: any(t in x for t in choice_tag))]
 
 if df.empty:
-    st.warning("No data found for the selected year(s) or/and type(s). Try picking a different filter!")
+    st.warning("No data found for the selected filter(s). Try picking a different filter!")
 else:
 
     st.title(f"{user_name}'s Anime Dashboard")
