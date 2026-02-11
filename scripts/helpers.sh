@@ -43,8 +43,8 @@ ask_continue()
 #Returns True if file exists and has content, False otherwise.
 file_exists()
 {
-    path="$1"
-    filename="$2"
+    local path="$1"
+    local filename="$2"
 
     if [ -s "$path" ]; then
         return 0
@@ -59,10 +59,33 @@ file_exists()
 # the only argument received is such exit status
 check_status()
 {
-    status="$1"
+    local status="$1"
     if [ "$status" -ne 0 ]; then
         echo "Shutting down..."
         deactivate # if usin conda, change this to conda deactivate
         exit 1
+    fi
+}
+
+# funtion used to make sure the argument passed, if any, is correct
+check_argument()
+{
+    local args="$1"
+    local len_args="$2"
+    local len_opt="$3"
+    local pattern="^[1-$len_opt]$"
+
+    if [ "$len_args" -eq 0 ]; then
+        return 0
+    elif [ "$len_args" -gt 1 ]; then
+        echo ""
+        echo "Usage: ./main.sh number"
+        return 1
+    elif [[ ! "${args[0]}" =~ $pattern ]]; then
+        echo ""
+        echo "Error, you should pass a number between 1 and "$len_opt"."
+        return 1
+    else
+        return 0
     fi
 }

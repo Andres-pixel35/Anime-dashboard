@@ -49,15 +49,26 @@ fi
 OPTIONS=( "Sync your csv" "Add work" "Remove Work" "Dashboard" "Update Airing" "Update Final" "Fetch From Anilist" "Exit" )
 len=${#OPTIONS[@]}
 
+args=("$@")
+len_args="$#"
+check_argument "$args" "$len_args" "$len"
+status=$?
+check_status "$status"
+
 while true; do
-    echo ""
-    echo "What do you want to do?"
+    if [ "$len_args" -ne 0 ]; then
+        action="${args[0]}"
+        len_args=0
+    else
+        echo ""
+        echo "What do you want to do?"
 
-    for ((i=0; i<$len; i++)); do
-        echo ""$((i+1))": "${OPTIONS[$i]}""
-    done
+        for ((i=0; i<$len; i++)); do
+            echo ""$((i+1))": "${OPTIONS[$i]}""
+        done
 
-    read -p "Please enter the number: " action
+        read -p "Please enter the number: " action
+    fi
 
     case "$action" in
         1)
