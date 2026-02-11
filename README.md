@@ -81,6 +81,11 @@ Run the main entry script:
 ./main.sh
 ```
 
+Or pass the option as an argument:
+```bash
+./main.sh option
+```
+
 ### Menu Options
 1. **Sync your csv**: Matches your personal list with the historical database to create/update the final dataset with enriched metadata.
 2. **Add work**: Manually add a new anime to your final list.
