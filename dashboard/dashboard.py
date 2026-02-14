@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 from config import path_final_csv, user_name
-from tabs import time, score, watched, summarize
+from tabs import time, score, watched, summarize, database
 
 df = pd.read_csv(path_final_csv)
 
@@ -11,15 +11,18 @@ df_fil["start_date"] = pd.to_datetime(df_fil["start_date"])
 df_fil["genres"] = df_fil["genres"].str.split(";")
 df_fil["tags"] = df_fil["tags"].str.split(";")
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
 
 with st.sidebar:
     st.header("Filters")
 
-    choice_year = st.multiselect("Filter year:", sorted(df_fil["start_date"].dt.year.unique()))
+    choice_year = st.multiselect("Filter year:", sorted(df_fil["start_date"].dt.year.unique(), reverse=True))
     choice_type = st.multiselect("Filter type:", df_fil["type"].unique())
     choice_genre = st.multiselect("Filter genre", sorted(df_fil.explode("genres")["genres"].unique()))
     choice_tag = st.multiselect("Filter tag", sorted(df_fil.explode("tags")["tags"].unique()))
+    choice_source = st.multiselect("Filter source", df_fil["source"].unique())
+    choice_season = st.multiselect("Filter season", df_fil["season"].unique())
+    choice_country = st.multiselect("Filter country", df_fil["country_of_origin"].unique())
 
     st.info("You may choose more than one option")
 
@@ -35,6 +38,15 @@ if choice_genre:
 
 if choice_tag:
     df_fil = df_fil[df_fil["tags"].apply(lambda x: any(t in x for t in choice_tag))]
+
+if choice_source:
+    df_fil = df_fil[df_fil["source"].isin(choice_source)]
+
+if choice_season:
+    df_fil = df_fil[df_fil["season"].isin(choice_season)]
+
+if choice_country:
+    df_fil = df_fil[df_fil["country_of_origin"].isin(choice_country)]
 
 if df_fil.empty:
     st.warning("No data found for the selected filter(s). Try picking a different filter!")
@@ -60,6 +72,10 @@ else:
     # Content for Tab 4
     with tab4:
         score.render_score(df_fil)
+
+    # Content for Tab 5
+    with tab5:
+        database.render_database(df_fil)
 
 
 
