@@ -1,7 +1,7 @@
 title,english_title,type,episodes,duration,source,season,genres,tags,score,start_date,country_of_origin
 ONE PIECE,ONE PIECE,TV,1155.0,24.0,MANGA,FALL,Action;Adventure;Comedy;Drama;Fantasy,Pirates;Travel;Shounen;Ensemble Cast;Super Power;Found Family;Male Protagonist;Conspiracy;Tragedy;Ships;Slapstick;Time Skip;Politics;War;Slavery;Dystopian;Fugitive;Gods;Crime;Monster Boy;Swordplay;Lost Civilization;Henshin;Philosophy;Anthropomorphism;Food;Prison;Cyborg;Shapeshifting;Primarily Adult Cast;Animals;Anti-Hero;Samurai;Skeleton;Medicine;Anachronism;Robots;Desert;Guns;Espionage;Asexual;Dragons;Marriage;Drugs;Nudity;Post-Apocalyptic;Artificial Intelligence;Fairy;Kuudere;Monster Girl;Assassins;Revenge;Adoption;Demons;Ninja;Mermaid;Gender Bending;Battle Royale;Kabuki;Aromantic;Time Manipulation;Musical Theater;Zombie;Clone;Angels;Trains;CGI;Arranged Marriage;Unrequited Love;LGBTQ+ Themes,88.0,1999-10-20,JP
 Kanojo Face THE ANIMATION,,OVA,1.0,20.0,MANGA,WINTER,Hentai,Heterosexual,64.0,2025-01-31,JP
-Nikuen,,OVA,1.0,20.0,MANGA,WINTER,Hentai,Netorare;Anthology;Rape;Large Breasts;Nudity;Oyakodon;Nakadashi;Gyaru;Fellatio;Group Sex,61.0,2025-02-21,JP
+Nikuen,,OVA,1.0,20.0,MANGA,WINTER,Hentai,Netorare;Anthology;Rape;Large Breasts;Nudity;Oyakodon;Nakadashi;Gyaru;Fellatio;Group Sex,60.0,2025-02-21,JP
 Yuusha-chan no Bouken wa Owatte Shimatta!,,OVA,1.0,15.0,OTHER,WINTER,Hentai,Rape;Nudity,52.0,2025-02-28,JP
 Nonohara Yuka no Himitsu no Haishin,,OVA,1.0,16.0,OTHER,WINTER,Hentai,Filmmaking;Female Protagonist;Sex Toys;Masturbation;Large Breasts;Drugs;Boobjob;Nakadashi;Fellatio,66.0,2025-02-28,JP
 Shiranai Koto Shiritai no? The Animation,,OVA,1.0,20.0,MANGA,WINTER,Hentai,Large Breasts;Nakadashi;Fellatio,64.0,2025-02-28,JP
@@ -36,7 +36,7 @@ Shachiku Cinderella,,OVA,1.0,,ORIGINAL,SUMMER,Hentai,,54.0,2025-08-29,JP
 Purepure Peropero Princess,,OVA,1.0,,VISUAL_NOVEL,SUMMER,Hentai,Isekai;Matriarchy;Medieval;Nakadashi;Oyakodon;Fellatio;Squirting;Boobjob;Handjob;Group Sex,59.0,2025-08-29,JP
 Inpuru-kun no Sonzai Shinai Oshigoto,,ONA,1.0,3.0,OTHER,FALL,Comedy,,,2025-09-01,JP
 Sister Breeder,,OVA,2.0,20.0,MANGA,FALL,Hentai,Inseki;Incest;Nakadashi;Anal Sex;Sex Toys;Heterosexual;Fellatio,69.0,2025-09-26,JP
-Korette Naani?,,OVA,1.0,,ORIGINAL,SUMMER,Hentai,,55.0,2025-09-26,JP
+Korette Naani?,,OVA,1.0,,ORIGINAL,SUMMER,Hentai,,56.0,2025-09-26,JP
 Kiken na Mori Onigokko,,OVA,1.0,,OTHER,SUMMER,Hentai,,45.0,2025-09-26,JP
 Ganso! Bandori-chan,GANSO! BanG Dream Chan,ONA,52.0,1.0,OTHER,FALL,Comedy;Music,Chibi;Primarily Teen Cast;Cute Girls Doing Cute Things;Band;Episodic;Primarily Female Cast;Ensemble Cast;Female Protagonist;School;Urban,65.0,2025-10-02,JP
 Koala Enikki,Koala's Diary,ONA,20.0,2.0,MANGA,FALL,Slice of Life,Anthropomorphism;Primarily Animal Cast;No Dialogue;Iyashikei;Episodic;Animals,48.0,2025-10-02,JP
@@ -45,9 +45,9 @@ Kagaku×Bouken Survival! 2nd Season,,TV,15.0,24.0,MANGA,FALL,,,,2025-10-04,JP
 JOCHUM Season 2,,TV_SHORT,20.0,2.0,ORIGINAL,FALL,Slice of Life,,,2025-10-04,JP
 Fumetsu no Anata e Season 3,To Your Eternity Season 3,TV,22.0,25.0,MANGA,FALL,Adventure;Drama;Fantasy;Psychological;Supernatural,Urban Fantasy;Shapeshifting;Philosophy;Urban;Suicide;Shounen;Yandere;LGBTQ+ Themes;Yuri;School,76.0,2025-10-04,JP
 Toujima Tanzaburou wa Kamen Rider ni Naritai,Tojima Wants to Be a Kamen Rider,TV,24.0,24.0,MANGA,FALL,Action;Comedy,Chuunibyou;Male Protagonist;Henshin;Superhero;Tokusatsu;Surreal Comedy;Ensemble Cast;Nudity;Idol,73.0,2025-10-05,JP
-DIGIMON BEATBREAK,DIGIMON BEATBREAK,TV,19.0,24.0,ORIGINAL,FALL,Adventure;Fantasy;Sci-Fi,Proxy Battle;Found Family;Urban;Primarily Teen Cast;Male Protagonist;Artificial Intelligence;Anthropomorphism;Cyberpunk;Dystopian;Henshin,67.0,2025-10-05,JP
+DIGIMON BEATBREAK,DIGIMON BEATBREAK,TV,19.0,24.0,ORIGINAL,FALL,Action;Adventure;Fantasy;Sci-Fi,Proxy Battle;Found Family;Urban;Primarily Teen Cast;Male Protagonist;Artificial Intelligence;Anthropomorphism;Cyberpunk;Dystopian;Henshin,67.0,2025-10-05,JP
 Ao no Orchestra Season 2,Blue Orchestra Season 2,TV,21.0,25.0,MANGA,FALL,Drama;Music,Primarily Teen Cast;School Club;Band;Classical Music;School;CGI;Unrequited Love;Love Triangle;Ensemble Cast;Bullying,68.0,2025-10-05,JP
-SI-VIS: The Sound of Heroes,SI-VIS: The Sound of Heroes,TV,24.0,24.0,ORIGINAL,FALL,Action;Music;Sci-Fi,Superhero;Idol;Super Power;Urban;Ensemble Cast;Aliens;Urban Fantasy;Memory Manipulation;School,55.0,2025-10-05,JP
+SI-VIS: The Sound of Heroes,SI-VIS: The Sound of Heroes,TV,24.0,24.0,ORIGINAL,FALL,Action;Music;Sci-Fi,Superhero;Idol;Super Power;Urban;Ensemble Cast;Aliens;Urban Fantasy;Memory Manipulation;School;Love Triangle,55.0,2025-10-05,JP
 Uso Tantei Tomanto,,TV_SHORT,26.0,,OTHER,FALL,Mystery,,,2025-10-06,JP
 Chitose-kun wa Ramune Bin no Naka,Chitose Is in the Ramune Bottle,TV,13.0,24.0,LIGHT_NOVEL,FALL,Comedy;Romance,Female Harem;Primarily Teen Cast;School;Male Protagonist;Philosophy;Coming of Age;Primarily Female Cast;Rehabilitation;Rural;Baseball,69.0,2025-10-07,JP
 Dokodemo Makibao: World Tour,,ONA,18.0,4.0,MANGA,FALL,Comedy;Sports,,,2025-10-08,JP
@@ -59,7 +59,7 @@ Reika wa Karei na Boku no Joou THE ANIMATION,,OVA,2.0,20.0,MANGA,FALL,Hentai,Nak
 Honey Blonde 2,,OVA,2.0,20.0,MANGA,FALL,Hentai,,58.0,2025-10-24,JP
 H na Gishi Series The Animation,,OVA,1.0,20.0,OTHER,FALL,Hentai,Inseki,60.0,2025-10-31,JP
 Natsuzuma,,OVA,1.0,16.0,OTHER,FALL,Hentai,MILF;Large Breasts;Threesome;Cheating;Blackmail;Netorare;Fellatio;Facial;Nakadashi;Handjob,63.0,2025-10-31,JP
-Seikon no Aria,,OVA,1.0,,VIDEO_GAME,FALL,Hentai,Nun;Fellatio,54.0,2025-10-31,JP
+Seikon no Aria,,OVA,1.0,,VIDEO_GAME,FALL,Hentai,Nun;Fellatio,55.0,2025-10-31,JP
 Atashin'chi NEXT 2,,ONA,5.0,10.0,MANGA,FALL,Comedy,,,2025-11-20,JP
 Oshikake! Bakunyuu Gal Harem Seikatsu,,OVA,1.0,16.0,OTHER,FALL,Hentai,Gyaru;Female Harem;Nakadashi;Group Sex;Boobjob;Fellatio;Femdom;Cunnilingus;Mating Press;Tanned Skin,66.0,2025-11-28,JP
 Nagachichi Nagai-san THE ANIMATION,,OVA,1.0,20.0,OTHER,FALL,Hentai,Acrobatics;Nudity;Large Breasts;DILF;Irrumatio;Nakadashi;Mating Press;Boobjob;Ahegao,56.0,2025-11-28,JP
@@ -77,23 +77,23 @@ Tamon-kun Ima Docchi!?,Tamon's B-Side,ONA,13.0,24.0,MANGA,WINTER,Comedy;Romance,
 Yuusha Kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku,Sentenced to Be a Hero,TV,12.0,25.0,LIGHT_NOVEL,WINTER,Action;Comedy;Drama;Fantasy,Anti-Hero;Demons;Conspiracy;Male Protagonist;Revenge;Gore;Medieval;Gods;Military;Crime,80.0,2026-01-03,JP
 Fate/strange Fake,Fate/strange Fake,TV,13.0,25.0,LIGHT_NOVEL,WINTER,Action;Adventure;Fantasy;Mystery;Supernatural,Urban;Mythology;Magic;Foreign;Urban Fantasy;Ensemble Cast;Vampire;Conspiracy;War;Battle Royale,82.0,2026-01-03,JP
 "Saioshi no Gikei Mederu Tame, Nagaikishimasu!",I'll Live a Long Life to Dote on My Favorite Stepbrother!,TV_SHORT,7.0,4.0,OTHER,WINTER,Fantasy;Romance,Boys' Love;Flash;LGBTQ+ Themes;Isekai;Cute Boys Doing Cute Things,47.0,2026-01-03,JP
-Hanazakari no Kimitachi e,Hana-Kimi,ONA,12.0,24.0,MANGA,WINTER,Comedy;Drama;Romance;Slice of Life,Shoujo;Athletics;Female Protagonist;Crossdressing;Primarily Teen Cast;Male Harem;Boarding School;Primarily Male Cast;Gender Bending;School,66.0,2026-01-04,JP
+Hanazakari no Kimitachi e,Hana-Kimi,ONA,12.0,24.0,MANGA,WINTER,Comedy;Drama;Romance;Slice of Life,Shoujo;Athletics;Female Protagonist;Crossdressing;Primarily Teen Cast;Male Harem;Boarding School;Primarily Male Cast;Gender Bending;Tomboy,66.0,2026-01-04,JP
 Majutsushi Kunon wa Mieteiru,Kunon the Sorcerer Can See,ONA,13.0,24.0,LIGHT_NOVEL,WINTER,Action;Adventure;Fantasy,Magic;Male Protagonist;Disability;College;Maids;LGBTQ+ Themes;Royal Affairs;Chuunibyou;Arranged Marriage;Cute Boys Doing Cute Things,64.0,2026-01-04,JP
 Arisugawa Ren tte Honto wa Onna Nanda yo ne.,Ren Arisugawa Is Actually a Girl,ONA,8.0,7.0,MANGA,WINTER,Comedy;Drama;Hentai,Coming of Age;Heterosexual;Teens' Love;Cervix Penetration,48.0,2026-01-05,JP
 Ichigo Aika: Zatsu de Namaiki na Imouto to Warikirenai Ani,Ichigo Aika: Strawberry Elegy,ONA,7.0,7.0,MANGA,WINTER,Comedy;Hentai;Romance,Heterosexual;Nudity;Gyaru;Inseki;Female Protagonist;Male Protagonist;Fellatio;Fingering,51.0,2026-01-05,JP
 CHOPPER's,,TV_SHORT,1.0,,,WINTER,Slice of Life,Animals;Travel;Iyashikei;Urban,,2026-01-05,JP
-Hokuto no Ken: Kenou-gun Zako-tachi no Banka,,TV_SHORT,6.0,4.0,MANGA,WINTER,Comedy,,,2026-01-05,JP
+Hokuto no Ken: Kenou-gun Zako-tachi no Banka,,TV_SHORT,7.0,4.0,MANGA,WINTER,Comedy,,,2026-01-05,JP
 Kirei ni Shitemoraemasu ka.,Wash It All Away,TV,12.0,24.0,MANGA,WINTER,Comedy;Romance;Slice of Life,Iyashikei;Work;Female Protagonist;Amnesia;Educational;Coastal,65.0,2026-01-05,JP
 Goumon Baito-kun no Nichijou,The Daily Life of a Part-time Torturer,TV,12.0,24.0,MANGA,WINTER,Comedy,Torture;Primarily Male Cast;Cute Boys Doing Cute Things;Male Protagonist;Primarily Adult Cast;Boys' Love;LGBTQ+ Themes;Work;Slapstick;Office,55.0,2026-01-05,JP
 Golden Kamuy: Saishuushou,Golden Kamuy Final Season,TV,13.0,24.0,MANGA,WINTER,Action;Adventure;Comedy,Historical;Seinen;Military;Ensemble Cast;Guns;Gore,79.0,2026-01-05,JP
 Vigilante: Boku no Hero Academia ILLEGALS 2nd Season,My Hero Academia: Vigilantes Season 2,TV,13.0,24.0,MANGA,WINTER,Action;Adventure;Drama;Fantasy,Super Power;Superhero;Shounen;Drugs;Idol;Urban,72.0,2026-01-05,JP
-Ikoku Nikki,Journal with Witch,TV,13.0,24.0,MANGA,WINTER,Drama;Slice of Life,Female Protagonist;Coming of Age;Estranged Family;Josei;Adoption;Family Life;Orphan;Writing;Parenthood;Urban,84.0,2026-01-05,JP
+Ikoku Nikki,Journal with Witch,TV,13.0,24.0,MANGA,WINTER,Drama;Slice of Life,Female Protagonist;Estranged Family;Coming of Age;Adoption;Josei;Family Life;Orphan;Writing;Parenthood;Found Family,84.0,2026-01-05,JP
 Kizoku Tensei: Megumareta Umare kara Saikyou no Chikara wo Eru,"Noble Reincarnation: Born Blessed, So I'll Obtain Ultimate Power",ONA,7.0,24.0,LIGHT_NOVEL,WINTER,Action;Adventure;Fantasy,Isekai;Magic;Politics;Royal Affairs;Swordplay;Maids;Male Protagonist,60.0,2026-01-05,JP
 Yoroi Shinden Samurai Troopers,Yoroi-Shinden Samurai Troopers,TV,12.0,24.0,,WINTER,Action;Adventure;Sci-Fi,Tokusatsu;Henshin;Super Power;Samurai;Primarily Male Cast;Gore;Urban Fantasy;Swordplay,56.0,2026-01-06,JP
 "Yuusha Party ni Kawaii Ko ga Ita no de, Kokuhaku Shitemita.","There was a Cute Girl in the Hero’s Party, so I Tried Confessing to Her",TV,13.0,24.0,LIGHT_NOVEL,WINTER,Adventure;Comedy;Fantasy;Romance,Demons;Heterosexual;Medieval;Anti-Hero;Isekai;Magic;Chuunibyou,63.0,2026-01-06,JP
 Mayonaka Heart Tune,Tune In to the Midnight Heart,TV,12.0,24.0,MANGA,WINTER,Comedy;Romance,Heterosexual;Female Harem;Male Protagonist;Ensemble Cast;School Club;Primarily Teen Cast;Shounen;Acting;VTuber;Tsundere,69.0,2026-01-06,JP
 Maou no Musume wa Yasashi Sugiru!!,The Demon King's Daughter is Too Kind!!,ONA,12.0,24.0,MANGA,WINTER,Comedy;Fantasy;Slice of Life,Female Protagonist;Cute Girls Doing Cute Things;Demons;Family Life;Rural;Episodic;Iyashikei;Parenthood;Slavery;Magic,69.0,2026-01-06,JP
-Himitsu Kessha Taka no Tsume XX,,ONA,6.0,5.0,ORIGINAL,WINTER,Comedy,,,2026-01-06,JP
+Himitsu Kessha Taka no Tsume XX,,ONA,7.0,5.0,ORIGINAL,WINTER,Comedy,,,2026-01-06,JP
 Isekai no Sata wa Shachiku Shidai,Isekai Office Worker: The Other World's Books Depend on the Bean Counter,TV,12.0,25.0,LIGHT_NOVEL,WINTER,Adventure;Fantasy;Romance;Slice of Life,Male Protagonist;Work;Economics;LGBTQ+ Themes;Royal Affairs;Boys' Love;Politics;Isekai;Magic;Primarily Adult Cast,66.0,2026-01-06,JP
 Osananajimi to wa Love Comedy ni Naranai,You Can't Be In a Rom-Com with Your Childhood Friends!,TV,12.0,24.0,MANGA,WINTER,Comedy;Romance,Heterosexual;Male Protagonist;Love Triangle;Female Harem;Shounen;School;Tsundere;Tanned Skin;Nudity;Meta,61.0,2026-01-06,JP
 Shibou Yuugi de Meshi wo Kuu.,SHIBOYUGI: Playing Death Games to Put Food on the Table,TV,11.0,24.0,LIGHT_NOVEL,WINTER,Action;Drama;Mystery;Thriller,Death Game;Primarily Female Cast;Female Protagonist;Achronological Order;Philosophy;Kuudere;Mixed Media;Body Horror;Ojou-sama;Cosmic Horror,76.0,2026-01-07,JP
@@ -107,17 +107,17 @@ Black Jack Yanen,,ONA,6.0,2.0,MANGA,WINTER,Comedy,Cannibalism,,2026-01-08,JP
 Mato Seihei no Slave 2,Chained Soldier Season 2,TV,12.0,24.0,MANGA,WINTER,Action;Adventure;Drama;Ecchi;Fantasy;Romance,Female Harem;Heterosexual;Super Power;Slavery;Male Protagonist;Shounen;Nudity;Monster Girl;Creature Taming;Female Protagonist,72.0,2026-01-08,JP
 Eris no Seihai,The Holy Grail of Eris,TV,6.0,24.0,LIGHT_NOVEL,WINTER,Drama;Fantasy;Mystery;Romance;Supernatural,Female Protagonist;Ghost;Revenge;Royal Affairs;Villainess;Conspiracy;Politics;Anti-Hero;Detective;Historical,67.0,2026-01-08,JP
 Odayaka Kizoku no Kyuuka no Susume.,A Gentle Noble's Vacation Recommendation,TV,6.0,24.0,LIGHT_NOVEL,WINTER,Adventure;Fantasy;Slice of Life,Isekai;Primarily Male Cast;LGBTQ+ Themes;Male Protagonist;Cute Boys Doing Cute Things;Josei;Boys' Love;Dungeon,63.0,2026-01-08,JP
-Champignon no Majo,Champignon Witch,TV,12.0,24.0,MANGA,WINTER,Drama;Fantasy;Supernatural,Witch;Shoujo;Female Protagonist;Medieval;Magic;Age Regression;Animals;Rural;Medicine;Heterosexual,68.0,2026-01-09,JP
+Champignon no Majo,Champignon Witch,TV,12.0,24.0,MANGA,WINTER,Drama;Fantasy;Supernatural,Witch;Female Protagonist;Shoujo;Medieval;Magic;Age Regression;Animals;Rural;Medicine;Heterosexual,68.0,2026-01-09,JP
 "Douse, Koishite Shimaunda. Season 2","Anyway, I'm Falling in Love with You. Season 2",TV,12.0,24.0,MANGA,WINTER,Drama;Romance,LGBTQ+ Themes;Shoujo;Female Protagonist;Heterosexual,60.0,2026-01-09,JP
-"""Omae Gotoki ga Maou ni Kateru to Omou na"" to Yuusha Party wo Tsuihou Sareta node, Outo de Kimama ni Kurashitai",ROLL OVER AND DIE: I Will Fight for an Ordinary Life with My Love and Cursed Sword!,TV,6.0,24.0,LIGHT_NOVEL,WINTER,Action;Adventure;Drama;Fantasy;Horror,Female Protagonist;Gore;Slavery;Yuri;Swordplay;Medieval;Magic;Conspiracy;Body Image;Religion,63.0,2026-01-09,JP
 Jujutsu Kaisen: Shimetsu Kaiyuu - Zenpen,JUJUTSU KAISEN Season 3: The Culling Game Part 1,TV,12.0,24.0,MANGA,WINTER,Action;Drama;Supernatural,Urban Fantasy;Curses;Shounen;Battle Royale;Urban;Exorcism;Super Power;Death Game;Primarily Teen Cast;Survival,84.0,2026-01-09,JP
+"""Omae Gotoki ga Maou ni Kateru to Omou na"" to Yuusha Party wo Tsuihou Sareta node, Outo de Kimama ni Kurashitai",ROLL OVER AND DIE: I Will Fight for an Ordinary Life with My Love and Cursed Sword!,TV,6.0,24.0,LIGHT_NOVEL,WINTER,Action;Adventure;Drama;Fantasy;Horror,Female Protagonist;Gore;Slavery;Yuri;Swordplay;Medieval;Magic;Conspiracy;Body Image;Religion,64.0,2026-01-09,JP
 High School! Kimengumi (2026),High School! Kimengumi (2026),TV,12.0,23.0,MANGA,WINTER,Comedy;Romance,Shounen;Surreal Comedy,46.0,2026-01-09,JP
-Hell Mode: Yarikomi Suki no Gamer wa Haisettei no Isekai de Musou Suru,HELL MODE: The Hardcore Gamer Dominates in Another World with Garbage Balancing,TV,12.0,23.0,LIGHT_NOVEL,WINTER,Action;Adventure;Fantasy,Isekai;Creature Taming;Male Protagonist;Magic;Class Struggle,65.0,2026-01-10,JP
+Hell Mode: Yarikomi Suki no Gamer wa Haisettei no Isekai de Musou Suru,HELL MODE: The Hardcore Gamer Dominates in Another World with Garbage Balancing,TV,12.0,23.0,LIGHT_NOVEL,WINTER,Action;Adventure;Fantasy,Isekai;Creature Taming;Male Protagonist;Magic;Class Struggle,66.0,2026-01-10,JP
 Omae wa Mada Gunma wo Shiranai: Reiwa-ban,,TV_SHORT,6.0,6.0,MANGA,WINTER,Comedy,,,2026-01-10,JP
 Dead Account,Dead Account,TV,12.0,24.0,MANGA,WINTER,Action;Supernatural,Exorcism;Ghost;Super Power;Curses;Male Protagonist;Urban Fantasy;Boarding School;School;Shounen,61.0,2026-01-10,JP
-TRIGUN STARGAZE,TRIGUN STARGAZE,TV,12.0,24.0,MANGA,WINTER,Action;Comedy;Drama;Sci-Fi,Dystopian;Full CGI;CGI;Shounen;Male Protagonist;Desert;Steampunk;Amnesia;Space,72.0,2026-01-10,JP
+TRIGUN STARGAZE,TRIGUN STARGAZE,TV,12.0,24.0,MANGA,WINTER,Action;Comedy;Drama;Sci-Fi,Dystopian;Full CGI;CGI;Shounen;Male Protagonist;Desert;Steampunk;Amnesia;Space,71.0,2026-01-10,JP
 Cardfight!! Vanguard: Divinez Genma Seisen-hen,,TV,6.0,,ORIGINAL,WINTER,Action;Adventure;Fantasy,Card Battle,,2026-01-10,JP
-DARK MOON: Kuro no Tsuki - Tsuki no Saidan,DARK MOON: THE BLOOD ALTAR,TV,12.0,24.0,OTHER,WINTER,Supernatural,Vampire;Male Harem;Female Protagonist;Super Power;School;Primarily Male Cast;Werewolf;Idol,63.0,2026-01-10,JP
+DARK MOON: Kuro no Tsuki - Tsuki no Saidan,DARK MOON: THE BLOOD ALTAR,TV,12.0,24.0,OTHER,WINTER,Supernatural,Vampire;Male Harem;Female Protagonist;Super Power;School;Ensemble Cast;Primarily Male Cast;Werewolf;Idol,63.0,2026-01-10,JP
 Android wa Keiken Ninzuu ni Hairimasu ka??,Does it Count if You Lose Your Innocence to an Android?,TV_SHORT,8.0,5.0,MANGA,WINTER,Comedy;Ecchi;Romance;Sci-Fi,Robots;Yuri;Nudity;Female Protagonist;Artificial Intelligence;Primarily Adult Cast;Large Breasts;Cohabitation;Defloration;Office Lady,62.0,2026-01-10,JP
 Tensei Shitara Dragon no Tamago Datta,Reincarnated as a Dragon Hatchling,TV,6.0,24.0,LIGHT_NOVEL,WINTER,Action;Adventure;Fantasy,Dragons;Isekai;Male Protagonist;Animals;Female Protagonist;Rural;Amnesia;Magic,62.0,2026-01-10,JP
 Hoppe-chan: Sun Oukoku to Kuro Hoppe-dan no Himitsu,,TV,6.0,24.0,OTHER,WINTER,Adventure;Fantasy,Kids;Female Protagonist;Idol;Full CGI;Ensemble Cast,,2026-01-10,JP
@@ -126,21 +126,21 @@ Seihantai na Kimi to Boku,You and I Are Polar Opposites,TV,12.0,24.0,MANGA,WINTE
 Jigokuraku 2nd Season,Hell’s Paradise Season 2,TV,12.0,24.0,MANGA,WINTER,Action;Adventure;Mystery;Supernatural,Body Horror;Ninja;Survival;Samurai;Swordplay;Gender Bending;Gore;Ensemble Cast;Super Power;Battle Royale,80.0,2026-01-11,JP
 Uruwashi no Yoi no Tsuki,In the Clear Moonlit Dusk,TV,6.0,24.0,MANGA,WINTER,Romance;Slice of Life,Shoujo;Heterosexual;Female Protagonist;Primarily Teen Cast;Urban;Tomboy;Iyashikei;School;LGBTQ+ Themes,72.0,2026-01-11,JP
 Hikuidori,Oedo Fire Slayer -The Legend of Phoenix-,TV,5.0,24.0,OTHER,WINTER,Action;Drama,Firefighters;Full CGI;Historical,42.0,2026-01-11,JP
-Akuyaku Reijou wa Ringoku no Outaishi ni Dekiai Sareru,The Villainess Is Adored by the Prince of the Neighbor Kingdom,TV,12.0,24.0,LIGHT_NOVEL,WINTER,Fantasy;Romance,Shoujo;Heterosexual;Villainess;Isekai;Female Protagonist,60.0,2026-01-11,JP
+Akuyaku Reijou wa Ringoku no Outaishi ni Dekiai Sareru,The Villainess Is Adored by the Prince of the Neighbor Kingdom,TV,12.0,24.0,LIGHT_NOVEL,WINTER,Fantasy;Romance,Shoujo;Villainess;Isekai;Heterosexual;Female Protagonist;Magic,59.0,2026-01-11,JP
 Kaya-chan wa Kowakunai,Kaya-chan Isn't Scary,TV,12.0,24.0,MANGA,WINTER,Comedy;Horror;Slice of Life,Female Protagonist;School;Ghost;Super Power;Seinen;Primarily Child Cast;Episodic;Pregnancy;Work;Body Horror,68.0,2026-01-11,JP
 Jingai Kyoushitsu no Ningengirai Kyoushi,A Misanthrope Teaches a Class for Demi-Humans,TV,13.0,24.0,LIGHT_NOVEL,WINTER,Comedy;Drama;Fantasy;Romance;Slice of Life,Teacher;School;Kemonomimi;Monster Girl;Female Harem;Dissociative Identities;Tsundere,59.0,2026-01-11,JP
 Yuusha no Kuzu,Scum of the Brave,TV,24.0,23.0,OTHER,WINTER,Action;Comedy;Drama;Fantasy;Sci-Fi,Male Protagonist;Drugs;Urban Fantasy;Gore;CGI;Chibi;Super Power;Mafia;Bar,61.0,2026-01-11,JP
-Yami Shibai 16,Theatre of Darkness: Yamishibai 16,TV_SHORT,6.0,4.0,ORIGINAL,WINTER,Horror;Supernatural,,49.0,2026-01-12,JP
+Yami Shibai 16,Theatre of Darkness: Yamishibai 16,TV_SHORT,6.0,4.0,ORIGINAL,WINTER,Horror;Supernatural,,50.0,2026-01-12,JP
 "Hime-sama, ""Goumon"" no Jikan desu 2nd Season","'Tis Time for ""Torture,"" Princess Season 2",TV,12.0,24.0,MANGA,WINTER,Comedy;Fantasy,Female Protagonist;Cute Girls Doing Cute Things;Food;Monster Girl;Demons;Iyashikei;Episodic;Anachronism;Torture;Parody,73.0,2026-01-12,JP
 [Oshi no Ko] 3rd Season,【OSHI NO KO】Season 3,TV,11.0,24.0,MANGA,WINTER,Drama;Mystery;Psychological;Supernatural,Idol;Revenge;Acting;Twins;Male Protagonist;Female Protagonist;Heterosexual;Otaku Culture;Cosplay;Anti-Hero,83.0,2026-01-14,JP
 Sousou no Frieren 2nd Season,Frieren: Beyond Journey’s End Season 2,TV,10.0,24.0,MANGA,WINTER,Adventure;Drama;Fantasy,Travel;Elf;Magic;Iyashikei;Female Protagonist;Found Family;Philosophy;Medieval;Swordplay;Heterosexual,89.0,2026-01-16,JP
 Sousou no Frieren: ●● no Mahou Part 3,,ONA,1.0,1.0,ORIGINAL,WINTER,Comedy;Fantasy,Medieval;Chibi,61.0,2026-01-19,JP
 GelPiyo,,TV_SHORT,4.0,4.0,OTHER,WINTER,Comedy,,,2026-01-21,JP
-Medalist 2nd Season,Medalist Season 2,TV,9.0,23.0,MANGA,WINTER,Drama;Psychological;Sports,Ice Skating;Athletics;Seinen;Primarily Child Cast;Coming of Age;Female Protagonist;Male Protagonist;Rehabilitation;CGI;Urban,79.0,2026-01-25,JP
+Medalist 2nd Season,Medalist Season 2,TV,9.0,23.0,MANGA,WINTER,Drama;Psychological;Sports,Ice Skating;Athletics;Seinen;Primarily Child Cast;Coming of Age;Female Protagonist;Male Protagonist;Rehabilitation;CGI;Urban,80.0,2026-01-25,JP
 Seifuku wa Kita mama de,,OVA,2.0,20.0,MANGA,WINTER,Hentai,Heterosexual;Cosplay;School Club;Nakadashi;Fellatio;Public Sex;Sadism;Maids,,2026-01-30,JP
-Seikou Senki Pony Celes,,OVA,1.0,,OTHER,WINTER,Hentai,,,2026-01-30,JP
+Seikou Senki Pony Celes,,OVA,1.0,,OTHER,WINTER,Hentai,Female Protagonist;Rape;Henshin;Large Breasts;Nakadashi;Magic,,2026-01-30,JP
 Onee-chan Gokko,Playing Sister,ONA,3.0,25.0,ORIGINAL,WINTER,Mystery;Psychological;Supernatural;Thriller,Female Protagonist;Clone;Urban Fantasy;Monster Girl;Primarily Female Cast;Rural;Denpa;Family Life;Primarily Teen Cast;Disability,,2026-01-31,JP
-Meitantei Precure!,Star Detective Precure!,TV,3.0,24.0,ORIGINAL,WINTER,Mahou Shoujo;Mystery,Female Protagonist;Henshin;Detective;Primarily Female Cast;Kids;Urban Fantasy;Urban;Anti-Hero;Primarily Child Cast;Advertisement,70.0,2026-02-01,JP
+Meitantei Precure!,Star Detective Precure!,TV,3.0,24.0,ORIGINAL,WINTER,Mahou Shoujo;Mystery,Female Protagonist;Henshin;Primarily Female Cast;Detective;Kids;Primarily Child Cast;Urban Fantasy;Urban;Primarily Teen Cast;Anti-Hero,70.0,2026-02-01,JP
 Duel Masters LOST: Boukyaku no Taiyou,,ONA,4.0,,MANGA,WINTER,Adventure;Supernatural,,,2026-02-06,JP
 BAKI-DOU,BAKI-DOU: The Invincible Samurai,ONA,13.0,,MANGA,WINTER,Action;Sports,Swordplay;Samurai;Male Protagonist;Primarily Male Cast;Martial Arts;Gore;Shounen,,2026-02-26,JP
 L'amour fou de l'automate,,OVA,1.0,,ORIGINAL,WINTER,Hentai,,,2026-02-27,JP
@@ -155,6 +155,6 @@ Ansatsu Kyoushitsu: Minna no Jikan,,MOVIE,1.0,,MANGA,WINTER,Action;Comedy;Sci-Fi
 Oshirimae Man: Fukkatsu no Oshirimae Teikoku,,MOVIE,1.0,,VIDEO_GAME,WINTER,Comedy,,,2026-03-20,JP
 Kegareboshi Murasaki,,OVA,1.0,,OTHER,WINTER,Hentai,,,2026-03-27,JP
 Hebi to Kumo,,OVA,1.0,,OTHER,WINTER,Hentai,Office Lady,,2026-03-27,JP
+Kegareboshi Kuro,,OVA,1.0,,OTHER,WINTER,Hentai,,,2026-03-27,JP
 Phantom Alchemia: Sylvia no Dokidoki Sakusei Toshi Keikaku,,OVA,1.0,,OTHER,WINTER,Fantasy;Hentai,,,2026-03-27,JP
 "THE IDOLM@STER Million Live!: Itsuka, Mannaka de",,OVA,1.0,,VIDEO_GAME,WINTER,Music,Idol,,2026-03-27,JP
-Kegareboshi Kuro,,OVA,1.0,,OTHER,WINTER,Hentai,,,2026-03-27,JP
