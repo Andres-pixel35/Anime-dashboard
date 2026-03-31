@@ -2,7 +2,6 @@ import requests
 import pandas as pd
 import time
 
-
 def fetch_anime_info(name, work_type):     
     # GraphQL query
     query = '''
@@ -36,11 +35,16 @@ def fetch_anime_info(name, work_type):
     }
     '''
     
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    }
     variables = {'search': name}
     url = 'https://graphql.anilist.co'
     
     try:
-        response = requests.post(url, json={'query': query, 'variables': variables})
+        response = requests.post(url, json={'query': query, 'variables': variables}, headers=headers)
+        #print(response.text) debug
         response.raise_for_status()
         data = response.json()
         
