@@ -44,14 +44,16 @@ def fetch_anime_info(name, work_type):
     
     try:
         response = requests.post(url, json={'query': query, 'variables': variables}, headers=headers)
-        #print(response.text) debug
-        response.raise_for_status()
         data = response.json()
-        
+
         if 'errors' in data or 'data' not in data or data['data']['Media'] is None:
             print(f"Error: No match found for '{name}'")
             time.sleep(1)
-            return "" 
+            return ""
+
+        if not response.ok:
+            #print(response.text) #debug
+            response.raise_for_status()
         
         media = data['data']['Media']
         
