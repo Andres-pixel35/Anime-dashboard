@@ -54,8 +54,8 @@ def fill_episodes(df):
 
     df = df.copy()
     # Ensure columns are numeric (floats)
-    df["episodes"] = pd.to_numeric(df["episodes"], errors='coerce')
-    df["next_episode_number"] = pd.to_numeric(df["next_episode_number"], errors='coerce')
+    df["episodes"] = pd.to_numeric(df["episodes"], errors="coerce")
+    df["next_episode_number"] = pd.to_numeric(df["next_episode_number"], errors="coerce")
     
     # Calculate what the "filled" values SHOULD be
     # This creates a temporary series where next_ep 1 becomes 1, and 5 becomes 4
