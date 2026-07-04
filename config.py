@@ -34,8 +34,8 @@ sort_final = {
 }
 
 # set this to True if you care about having one piece with the episodes up to date, otherwise
-# let it as false, since it will make updating_airing to take more time 
-update_one_piece = False
+# set it as false, since it will make updating_airing to take more time 
+update_one_piece = True
 
 # set this to False if you don't want to see the titles left unmatched at "sync your csv"
 show_unmatched = True
