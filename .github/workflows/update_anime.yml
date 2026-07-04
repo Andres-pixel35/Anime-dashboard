@@ -1,22 +1,22 @@
+---
 name: Run script, update anime and commit - push changes
 
 on:
   schedule:
     - cron: '25 8 * * *'
       timezone: 'America/Bogota'
-    
-jobs: 
+jobs:
   test_schedule:
     runs-on: ubuntu-latest
 
-    permissions: 
+    permissions:
       contents: write
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v7
 
-      - name: Run script main.sh 5 # 5 to update the data
+      - name: Run script main.sh 5  # 5 to update the data
         run: |
           chmod +x ./main.sh
           echo -e "\nn" | ./main.sh 5
