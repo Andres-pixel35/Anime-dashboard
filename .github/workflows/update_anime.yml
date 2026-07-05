@@ -3,7 +3,7 @@ name: Run script, update anime and commit - push changes
 
 on:
   schedule:
-    - cron: '25 6 * * *'
+    - cron: '05 7 * * *'
       timezone: 'America/Bogota'
 jobs:
   update_data:

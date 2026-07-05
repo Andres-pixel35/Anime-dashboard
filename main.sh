@@ -26,14 +26,14 @@ fi
 
 # Exports variables from config.py
 eval $("$PY_BIN" -c "
-    import config
-    print(f'GREETING=\"{config.greeting}\"')
-    print(f'FINAL_CSV=\"{config.final_csv}\"')
-    print(f'FINAL_PATH=\"{config.path_final_csv}\"')
-    print(f'USER_CSV=\"{config.user_csv}\"')
-    print(f'PATH_USER_CSV=\"{config.path_user_csv}\"')
-    print(f'DISABLE_VERIFICATION={str(config.disable_file_verification).lower()}')
-    print(f'SHOW_GREETINGS={str(config.show_greetings).lower()}')
+import config
+print(f'GREETING=\"{config.greeting}\"')
+print(f'FINAL_CSV=\"{config.final_csv}\"')
+print(f'FINAL_PATH=\"{config.path_final_csv}\"')
+print(f'USER_CSV=\"{config.user_csv}\"')
+print(f'PATH_USER_CSV=\"{config.path_user_csv}\"')
+print(f'DISABLE_VERIFICATION={str(config.disable_file_verification).lower()}')
+print(f'SHOW_GREETINGS={str(config.show_greetings).lower()}')
 ")
 
 if [ "$SHOW_GREETINGS" == "true" ]; then

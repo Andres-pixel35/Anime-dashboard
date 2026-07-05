@@ -2,11 +2,11 @@
 
 # Capture Python variables into Bash environment
 eval $("$PY_BIN" -c "
-    import config
-    print(f'URL=\"{config.url}\"')
-    print(f'CLEANUP_SCRIPT=\"{config.cleanup}\"')
-    print(f'CONCAT_SCRIPT=\"{config.concatenate}\"')
-    print(f'SAVE_AIRING=\"{config.path_original_airing}\"')
+import config
+print(f'URL=\"{config.url}\"')
+print(f'CLEANUP_SCRIPT=\"{config.cleanup}\"')
+print(f'CONCAT_SCRIPT=\"{config.concatenate}\"')
+print(f'SAVE_AIRING=\"{config.path_original_airing}\"')
 ")
 
 # download the new airing_anime.csv
