@@ -1,6 +1,6 @@
-pandas
-streamlit
-rapidfuzz
-questionary
-prompt_toolkit
-requests
+pandas==3.0.3
+streamlit==1.59.0
+rapidfuzz==3.14.5
+questionary==2.1.1
+prompt_toolkit==3.0.52
+requests==2.34.2
