@@ -1,4 +1,4 @@
-from questionary import select
+from questionary import select, confirm
 import pandas as pd
 from config import valid_type, blue_style, path_historical_csv
 from setup_final import helpers
@@ -24,7 +24,19 @@ if title.strip() and work_type:
         type_val = new_entry["type"].item()
         is_duplicate = ((df1["title"] == title_val) & (df1["type"] == type_val)).any()
 
-        if not is_duplicate:
+        should_write = not is_duplicate
+        success_msg = f"{title_val.title()} ({type_val.lower()}) was successfully added to anime.csv"
+
+        if is_duplicate:
+            should_write = confirm(
+                f"{title_val.title()} ({type_val.lower()}) already exists in anime.csv, do you want to replace it?",
+                default=False
+            ).ask()
+            success_msg = f"{title_val.title()} ({type_val.lower()}) was successfully replaced in anime.csv"
+            if should_write:
+                df1 = df1[~((df1["title"] == title_val) & (df1["type"] == type_val))]
+
+        if should_write:
             # clean new entry
             new_entry = helpers.fill_episodes(new_entry)
             new_entry = new_entry.drop("next_episode_number", axis=1)
@@ -34,10 +46,10 @@ if title.strip() and work_type:
             df = pd.concat([df1, new_entry.astype(df1.dtypes)], ignore_index=True)
             df.loc[:,"start_date"] = pd.to_datetime(df["start_date"]).dt.date.astype(str)
             df = df.sort_values(by="start_date")
-            
+
             try:
                 df.to_csv(path_historical_csv, index=False, encoding="utf-8")
-                print(f"{title_val.title()} ({type_val.lower()}) was successfully added to anime.csv")
+                print(success_msg)
             except Exception as e:
                 print(f"Error saving anime.csv: {e}")
                 raise
