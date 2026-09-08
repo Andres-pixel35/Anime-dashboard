@@ -46,14 +46,23 @@ def fetch_anime_info(name, work_type):
         response = requests.post(url, json={'query': query, 'variables': variables}, headers=headers)
         data = response.json()
 
-        if 'errors' in data or 'data' not in data or data['data']['Media'] is None:
-            print(f"Error: No match found for '{name}'")
+        errors = data.get('errors') or []
+        error_msg = '; '.join(e.get('message', '') for e in errors) or response.text
+
+        if not response.ok:
+            print(f"Error: AniList API returned {response.status_code}: {error_msg}")
             time.sleep(1)
             return ""
 
-        if not response.ok:
-            #print(response.text) #debug
-            response.raise_for_status()
+        if errors:
+            print(f"Error: AniList API error: {error_msg}")
+            time.sleep(1)
+            return ""
+
+        if (data.get('data') or {}).get('Media') is None:
+            print(f"Error: No match found for '{name}'")
+            time.sleep(1)
+            return ""
         
         media = data['data']['Media']
         
