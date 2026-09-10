@@ -38,6 +38,8 @@ def fetch_anime_info(name, work_type):
     headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        'Referer': 'https://anilist.co/',
+        'Origin': 'https://anilist.co',
     }
     variables = {'search': name}
     url = 'https://graphql.anilist.co'
